@@ -1,0 +1,28 @@
+{
+  "name": "form-factory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "del": "^3.0.0",
+    "eslint": "^5.7.0",
+    "gulp": "^4.0.0",
+    "gulp-debug": "^4.0.0",
+    "gulp-eslint": "^5.0.0",
+    "gulp-web-dependencies": "^1.1.2",
+    "gulp-webserver": "^0.9.1",
+    "html5shiv": "^3.7.3"
+  }
+}

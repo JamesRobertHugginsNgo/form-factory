@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Form Factory</title>
+
+	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<style>
+		.dotted {
+			border: 1px dashed darkslategrey;
+			border-radius: 0.25rem;
+			margin-bottom: 1rem;
+			padding: 0.75rem 1.25rem;
+			position: relative;
+		}
+
+		.type {
+			background-color: #fff;
+			color: darkslategrey;
+			font-size: 0.8rem;
+			padding: 0 0.5rem;
+			position: absolute;
+			left: 1rem;
+			top: -0.7rem;
+			white-space: nowrap;
+		}
+
+		.type::after {
+			content: ' ::';
+		}
+
+		.type::before {
+			content: ':: ';
+		}
+
+		.card {
+			margin-bottom: 1rem;
+			margin-top: 1rem;
+		}
+
+		.card:last-child {
+			margin-bottom: 0;
+		}
+	</style>
+
+	<!--[if IE]>
+	<script src="../node_modules/html5shiv/dist/html5shiv.js"></script>
+	<![endif]-->
+	<script src="../node_modules/jquery/dist/jquery.js"></script>
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Form Factory</h1>
+
+		<form class="dotted">
+			<h3>Form Title</h3>
+
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Ut viverra semper orci, quis bibendum purus sagittis vel.
+				Nullam eget fringilla leo. Nunc tempor auctor dui ultricies pharetra.
+				Proin posuere, lectus eget rhoncus pharetra, nibh erat pharetra enim, eu hendrerit mauris eros dictum dolor.
+			</p>
+
+			<p><button type="button" class="btn btn-secondary">Edit Form</button></p>
+
+			<div class="dotted">
+				<div class="type">PAGE</div>
+
+				<div class="card">
+					<div class="type">SECTION</div>
+
+					<div class="card-header">
+						Section Title
+					</div>
+
+					<div class="card-body">
+						<p class="card-text">
+							Nulla viverra venenatis ullamcorper.
+							Nullam vitae augue vitae neque venenatis cursus vitae nec magna.
+							Nunc scelerisque vel lorem eu aliquet.
+						</p>
+
+						<p class="card-text"><button type="button" class="btn btn-secondary">Edit Section</button></p>
+
+						<div class="dotted">
+							<div class="type">ROW</div>
+
+							<p class="card-text"><button type="button" class="btn btn-secondary">Edit Row</button></p>
+
+							<div class="row">
+								<div class="col">
+									<div class="form-group dotted">
+										<div class="type">FIELD</div>
+										<label for="exampleInputEmail1">Email address</label>
+										<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+										<button type="button" class="btn btn-secondary">Edit Field</button>
+									</div>
+								</div>
+
+								<div class="col">
+									<div class="form-group dotted">
+										<div class="type">FIELD</div>
+										<label for="exampleInputEmail1">Email address</label>
+										<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+										<button type="button" class="btn btn-secondary">Edit Field</button>
+									</div>
+								</div>
+
+								<div class="col">
+									<div class="form-group dotted">
+										<div class="type">FIELD</div>
+										<label for="exampleInputEmail1">Email address</label>
+										<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+										<button type="button" class="btn btn-secondary">Edit Field</button>
+									</div>
+								</div>
+							</div>
+
+							<p class="card-text"><button type="button" class="btn btn-secondary">Add New Field</button></p>
+						</div>
+
+						<p class="card-text"><button type="button" class="btn btn-secondary">Add New Row</button></p>
+					</div>
+				</div>
+
+				<p><button type="button" class="btn btn-secondary">Add New Section</button></p>
+
+				<div class="row justify-content-between">
+					<div class="col-auto">
+						<p>
+							<button type="button" class="btn btn-primary">Submit</button>
+							<button type="button" class="btn btn-default">Cancel</button>
+							<button type="button" class="btn btn-default">Print</button>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<p>
+				Vivamus in diam vitae risus condimentum malesuada.
+				Cras consequat eros sed blandit viverra.
+				Sed hendrerit eu velit quis ultrices.
+				Pellentesque varius eget enim at fringilla.
+				Morbi sollicitudin enim a risus efficitur, nec viverra ipsum dignissim.
+			</p>
+
+			<div class="type">FORM</div>
+		</form>
+	</div>
+</body>
+
+</html>
