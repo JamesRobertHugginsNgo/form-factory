@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Form Factory</title>
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+	 crossorigin="anonymous">
+	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<style>
+		.label {
+			background-color: white;
+			color: gray;
+			font-size: 0.8rem;
+			font-style: italic;
+			line-height: 0.8rem;
+			padding: 0 0.5rem;
+			position: absolute;
+			text-transform: uppercase;
+			top: -0.4rem;
+			white-space: nowrap;
+		}
+
+		.ender {
+			background-color: white;
+			color: gray;
+			font-size: 0.8rem;
+			font-style: italic;
+			line-height: 0.8rem;
+			padding: 0 0.5rem;
+			position: absolute;
+			text-transform: uppercase;
+			bottom: -0.4rem;
+			white-space: nowrap;
+		}
+
+		.group {
+			border: 1px dashed gray;
+			border-radius: 0.25rem;
+			margin-bottom: 1rem;
+			margin-top: 1rem;
+			/* padding-top: 1rem; */
+			position: relative;
+		}
+
+		.group>*:first-child {
+			margin-top: 0;
+		}
+
+		.group>*:last-child {
+			margin-bottom: 0;
+		}
+
+		.group>.label {
+			font-weight: bold;
+			left: 0.5rem;
+		}
+
+		.group>.ender {
+			font-weight: bold;
+			left: 0.5rem;
+		}
+
+		.section {
+			border-bottom: 1px dashed gray;
+			border-top: 1px dashed gray;
+			position: relative;
+		}
+
+		.section+.section {
+			border-top: 0;
+		}
+
+		.section:first-child,
+		.label+.section {
+			margin-top: 1.25rem;
+		}
+
+		.section:last-child,
+		.section.beforeEnder {
+			border-bottom: 0;
+		}
+
+		.section>.label {
+			left: 1rem;
+		}
+
+		.section>.ender {
+			left: 1rem;
+		}
+
+		.padding {
+			padding: 1rem;
+		}
+
+		.padding>*:first-child {
+			margin-top: 0;
+		}
+
+		.padding>*:last-child {
+			margin-bottom: 0;
+		}
+
+		.row {
+			margin-bottom: 1rem;
+			margin-top: 1rem;
+		}
+
+		.row>*[class*="col"]>*:first-child {
+			margin-top: 0;
+		}
+
+		.row>*[class*="col"]>*:last-child {
+			margin-bottom: 0;
+		}
+	</style>
+
+	<!--[if IE]>
+	<script src="../node_modules/html5shiv/dist/html5shiv.js"></script>
+	<![endif]-->
+	<script src="../node_modules/jquery/dist/jquery.js"></script>
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Form Factory</h1>
+
+		<div class="group">
+			<div class="label">Form</div>
+
+			<div class="padding">
+				<h1>Form Title</h1>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices arcu vitae tristique molestie. Vivamus
+					quis leo eu nibh mollis convallis at id massa. Nam aliquam vehicula aliquam.</p>
+			</div>
+
+			<div class="section">
+				<div class="label">Pages</div>
+
+				<div class="padding">
+					<div class="group">
+						<div class="padding">
+							<h3>Page 1: The First Page</h3>
+
+							<p>Vivamus congue aliquam sapien. Etiam ullamcorper enim non nunc consequat pretium. Curabitur ante elit,
+								gravida scelerisque mollis ut, auctor eu risus.</p>
+						</div>
+
+
+						<div class="section">
+							<div class="label">Sections</div>
+
+							<div class="padding">
+								<div class="group">
+									<div class="padding">
+										<h4>Section 1: Section Title</h4>
+
+										<p>In mollis tellus eleifend magna tempor, sit amet dictum risus mollis. Aenean mattis, augue rutrum
+											ullamcorper tempus, lorem justo feugiat orci, ut ultricies dui arcu eget tortor.</p>
+									</div>
+
+									<div class="section">
+										<div class="label">Rows</div>
+
+										<div class="padding">
+											<div class="group">
+												<div class="padding">
+													<div class="row">
+														<div class="col">
+															<div class="group">
+																<div class="padding">
+																	<div class="form-group">
+																		<label>Field Label</label>
+																		<input type="text" class="form-control">
+																		<small id="emailHelp" class="form-text text-muted">Help message.</small>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="col">
+															<div class="group">
+																<div class="padding">
+																	<div class="form-group">
+																		<label>Field Label</label>
+																		<input type="text" class="form-control">
+																		<small id="emailHelp" class="form-text text-muted">Help message.</small>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="col">
+															<div class="group">
+																<div class="padding">
+																	<div class="form-group">
+																		<label>Field Label</label>
+																		<input type="text" class="form-control">
+																		<small id="emailHelp" class="form-text text-muted">Help message.</small>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="group">
+
+
+												<div class="padding">
+													<div class="row">
+														<div class="col-4">
+															<div class="group">
+																<div class="padding">
+																	<div class="form-group">
+																		<label>Field Label</label>
+																		<input type="text" class="form-control">
+																		<small id="emailHelp" class="form-text text-muted">Help message.</small>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="col-8">
+															<div class="group">
+																<div class="padding">
+																	<div class="form-group">
+																		<label>Textarea</label>
+																		<textarea class="form-control"></textarea>
+																		<small id="emailHelp" class="form-text text-muted">Help message.</small>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+
+									<div class="padding">
+										<p>Morbi vitae purus pellentesque sapien bibendum dignissim. Nam eu volutpat est. Aenean convallis, leo at
+											venenatis lacinia, nisi nulla auctor lectus, sit amet porta urna velit at nunc.</p>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+
+						<div class="padding">
+							<div class="row justify-content-between">
+								<div class="col-6"></div>
+								<div class="col-6">
+									<p><button class="btn btn-primary btn-block btn-lg">Next: Page 2</button></p>
+								</div>
+							</div>
+
+							<p>Nullam blandit, sem a venenatis suscipit, quam nisl iaculis neque, sit amet egestas neque lacus elementum
+								tortor.</p>
+						</div>
+					</div>
+
+					<div class="group">
+						<div class="padding">
+							<h3>Page 2: The Middle Page</h3>
+
+							<p>Vivamus congue aliquam sapien. Etiam ullamcorper enim non nunc consequat pretium. Curabitur ante elit,
+								gravida scelerisque mollis ut, auctor eu risus.</p>
+
+							<div class="row justify-content-between">
+								<div class="col-6">
+									<p><button class="btn btn-default btn-block btn-lg">Back: Page 1</button></p>
+								</div>
+								<div class="col-6">
+									<p><button class="btn btn-primary btn-block btn-lg">Next: Page 3</button></p>
+								</div>
+							</div>
+
+							<p>Nullam blandit, sem a venenatis suscipit, quam nisl iaculis neque, sit amet egestas neque lacus elementum
+								tortor.</p>
+						</div>
+					</div>
+
+					<div class="group">
+						<div class="padding">
+							<h3>Page 3: The Last Page</h3>
+
+							<p>Vivamus congue aliquam sapien. Etiam ullamcorper enim non nunc consequat pretium. Curabitur ante elit,
+								gravida scelerisque mollis ut, auctor eu risus.</p>
+
+							<div class="row justify-content-between">
+								<div class="col-6">
+									<p><button class="btn btn-default btn-block btn-lg">Back: Page 2</button></p>
+								</div>
+								<div class="col-6">
+									<p><button class="btn btn-primary btn-block btn-lg">Submit</button></p>
+								</div>
+							</div>
+
+							<p>Nullam blandit, sem a venenatis suscipit, quam nisl iaculis neque, sit amet egestas neque lacus elementum
+								tortor.</p>
+						</div>
+					</div>
+
+					<div class="group">
+						<div class="padding">
+							<h3>Page 4: The Thank You Page</h3>
+
+							<p>Vivamus congue aliquam sapien. Etiam ullamcorper enim non nunc consequat pretium. Curabitur ante elit,
+								gravida scelerisque mollis ut, auctor eu risus.</p>
+
+							<div class="row justify-content-between">
+								<div class="col-6">
+									<p><button class="btn btn-primary btn-block btn-lg">Send Another</button></p>
+								</div>
+								<div class="col-6"></div>
+							</div>
+
+							<p>Nullam blandit, sem a venenatis suscipit, quam nisl iaculis neque, sit amet egestas neque lacus elementum
+								tortor.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="padding">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
