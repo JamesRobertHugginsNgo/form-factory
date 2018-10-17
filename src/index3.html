@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Form Factory</title>
+
+	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<style>
+		.group {
+			border: 1px dashed darkslategray;
+			margin-bottom: 1rem;
+			margin-top: 1rem;
+			position: relative;
+		}
+
+		.group>.groupSection {
+			border-bottom: 1px dashed darkslategray;
+			padding: 1rem 1rem;
+			position: relative;
+		}
+
+		.group>.groupSection:last-child {
+			border-bottom: 0;
+		}
+
+		.group>.label,
+		.group>.groupSection>.label,
+		.group>.row > *[class*= "col"] >.groupSection>.label {
+			background-color: #fff;
+			color: darkslategrey;
+			font-size: 0.8rem;
+			font-style: italic;
+			padding: 0 0.5rem;
+			position: absolute;
+			left: 1rem;
+			top: -0.7rem;
+			white-space: nowrap;
+			z-index: 2;
+		}
+
+		.group>.groupSection>*:first-child,
+		.group>.groupSection>.label+* {
+			margin-top: 0;
+		}
+
+		.group>.groupSection>*:last-child {
+			margin-bottom: 0;
+		}
+
+		.row {
+			margin-bottom: 1rem;
+			margin-top: 1rem;
+		}
+
+		.row:first-child,
+		.group>.label + .row,
+		.group>.groupSection>.label + .row {
+			margin-top: 0;
+		}
+
+		.row:last-child {
+			margin-bottom: 0;
+		}
+
+		.row > *[class*= "col"] > *:first-child {
+			margin-top: 0;
+		}
+
+		.row > *[class*= "col"] > *:last-child {
+			margin-bottom: 0;
+		}
+
+		.group>.row > *[class*= "col"] >.groupSection {
+			border-right: 1px dashed darkslategray;
+			padding: 1rem 1rem;
+			position: relative;
+		}
+
+		.group>.row > *[class*= "col"]:last-child >.groupSection {
+			border-right: 0;
+		}
+	</style>
+
+	<!--[if IE]>
+	<script src="../node_modules/html5shiv/dist/html5shiv.js"></script>
+	<![endif]-->
+	<script src="../node_modules/jquery/dist/jquery.js"></script>
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Form Factory</h1>
+
+		<div class="group">
+			<div class="label">FORM</div>
+
+			<div class="groupSection">
+
+
+				<h2>Form Title</h2>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet leo nec orci efficitur dapibus. Nulla
+					facilisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas diam erat, vehicula et fringilla
+					eu, vulputate non justo. Nam imperdiet mauris non commodo ornare. Aenean vel odio ac lectus semper condimentum.
+				</p>
+			</div>
+
+			<div class="groupSection">
+				<div class="label">PAGES</div>
+
+				<div class="group">
+					<div class="groupSection">
+						<div class="label">PAGE 1</div>
+
+						<h3>Page Title</h3>
+
+						<p>Ut vehicula quam in sapien volutpat, vel rutrum orci fringilla. In in eros tempor neque consequat ornare
+							congue et orci. Vivamus et mi sed libero efficitur vehicula ut id ligula. Nulla congue massa finibus augue
+							posuere placerat. Mauris non fringilla nunc.</p>
+					</div>
+
+					<div class="groupSection">
+						<div class="label">SECTIONS</div>
+
+						<div class="group">
+							<div class="label">SECTION 1</div>
+
+							<div class="card">
+								<div class="card-header">
+									Section Title
+								</div>
+
+								<div class="card-body">
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Donec eget tortor et ligula pretium commodo.
+										Donec augue ex, molestie quis sapien non, porttitor luctus magna.
+										Aliquam a dapibus dui.
+									</p>
+									<div class="group">
+										<div class="groupSection">
+											<div class="label">ROWS</div>
+
+											<div class="group">
+												<div class="groupSection">
+													<div class="label">ROW 1</div>
+												</div>
+												<!-- <div class="group"> -->
+												<div class="groupSection">
+													<div class="label">FIELDS</div>
+
+													<div class="group">
+														<div class="row no-gutters">
+															<div class="col">
+																<div class="groupSection">
+																	<div class="label">FIELD 1</div>
+																	VALUE
+																</div>
+															</div>
+
+															<div class="col">
+																<div class="groupSection">
+																	<div class="label">FIELD 2</div>
+																	VALUE
+																</div>
+															</div>
+
+															<div class="col">
+																<div class="groupSection">
+																	<div class="label">FIELD 3</div>
+																	VALUE
+																</div>
+															</div>
+
+															<div class="col">
+																<div class="groupSection">
+																	<div class="label">FIELD 3</div>
+																	VALUE
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!-- </div> -->
+												<!-- </div> -->
+
+												<div class="groupSection">
+													<div class="row justify-content-between">
+														<div class="col-auto">
+															<p>
+																<button type="button" class="btn btn-secondary">Edit Row 1</button>
+															</p>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="groupSection">
+													<div class="row justify-content-between">
+														<div class="col-auto">
+															<p>
+																<button type="button" class="btn btn-secondary">Add New Row</button>
+															</p>
+														</div>
+													</div>
+												</div>
+										</div>
+									</div>
+
+									<p>
+										Maecenas sed purus risus.
+										Suspendisse ac hendrerit quam. Ut quis efficitur erat.
+										Maecenas hendrerit gravida lobortis.
+										Vivamus suscipit sodales augue quis accumsan.
+									</p>
+
+									<div class="row justify-content-between">
+										<div class="col-auto">
+											<p>
+												<button type="button" class="btn btn-secondary">Edit Section 1</button>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row justify-content-between">
+							<div class="col-auto">
+								<p>
+									<button type="button" class="btn btn-secondary">Add New Section</button>
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="groupSection">
+						<div class="row justify-content-between">
+							<div class="col-auto">
+								<p>
+									<button type="button" class="btn btn-default">Prev</button>
+									<button type="button" class="btn btn-primary">Next</button>
+								</p>
+							</div>
+						</div>
+
+						<p>Suspendisse id dapibus lectus, nec molestie ipsum. Maecenas feugiat mi ultricies ligula rutrum aliquam.
+							Quisque laoreet nibh sed pulvinar consectetur. Pellentesque fermentum pharetra scelerisque. Aenean non tellus et
+							enim faucibus elementum ut ut enim. Suspendisse scelerisque faucibus felis, ac laoreet dolor convallis non. </p>
+
+						<div class="row justify-content-between">
+							<div class="col-auto">
+								<p>
+									<button type="button" class="btn btn-secondary">Edit Page 1</button>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row justify-content-between">
+					<div class="col-auto">
+						<p>
+							<button type="button" class="btn btn-secondary">Add New Page</button>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="groupSection">
+				<p>Nullam vitae egestas neque. Quisque non sollicitudin diam. Nullam tempor nibh eget mauris elementum, sit amet
+					dignissim sem facilisis. Maecenas euismod neque in orci pharetra imperdiet. Aliquam mattis nisi eget arcu viverra
+					posuere. Duis eu risus convallis, ultricies nisl et, pellentesque libero. </p>
+
+				<div class="row justify-content-between">
+					<div class="col-auto">
+						<p>
+							<button type="button" class="btn btn-secondary">Edit Form</button>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Form Factory</title>
+
+	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<style>
+		.wrapper {
+			border: 1px dashed darkslategrey;
+			margin: 1rem 0;
+			position: relative;
+		}
+
+		.wrapper:first-child {
+			margin-top: 0;
+		}
+
+		.wrapper:last-child {
+			margin-bottom: 0;
+		}
+
+		.wrapper > .label {
+			background-color: #fff;
+			color: darkslategrey;
+			font-size: 0.8rem;
+			font-style: italic;
+			padding: 0 0.5rem;
+			position: absolute;
+			left: 1rem;
+			top: -0.7rem;
+			white-space: nowrap;
+		}
+
+		.wrapper > .padded {
+			padding: 1rem 1rem;
+		}
+
+		.wrapper > .padded > *:last-child {
+			margin-bottom: 0;
+		}
+
+		.wrapper > .wrapper {
+			border-left: 0;
+			border-right: 0;
+			margin-bottom: 0;
+			margin-top: 0;
+		}
+
+		.wrapper > .wrapper:first-child {
+			border-top: 0;
+		}
+
+		.wrapper > .wrapper:last-child {
+			border-bottom: 0;
+		}
+
+		.row {
+			margin-bottom: 1rem;
+			margin-top: 1rem;
+		}
+
+		.row:first-child {
+			margin-top: 0;
+		}
+
+		.row:last-child {
+			margin-bottom: 0;
+		}
+
+		.row > *[class*= "col"] > *:first-child {
+			margin-top: 0;
+		}
+
+		.row > *[class*= "col"] > *:last-child {
+			margin-bottom: 0;
+		}
+	</style>
+
+	<!--[if IE]>
+	<script src="../node_modules/html5shiv/dist/html5shiv.js"></script>
+	<![endif]-->
+	<script src="../node_modules/jquery/dist/jquery.js"></script>
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Form Factory</h1>
+
+		<div class="wrapper">
+			<div class="label">FORM</div>
+
+			<div class="padded">
+				<h2>Form Title</h2>
+
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					Donec eget tortor et ligula pretium commodo.
+					Donec augue ex, molestie quis sapien non, porttitor luctus magna.
+					Aliquam a dapibus dui.
+					Maecenas sed purus risus.
+					Suspendisse ac hendrerit quam. Ut quis efficitur erat.
+					Maecenas hendrerit gravida lobortis.
+					Vivamus suscipit sodales augue quis accumsan.
+				</p>
+			</div>
+
+			<div class="wrapper">
+				<div class="label">PAGES</div>
+
+				<div class="padded">
+					<div class="wrapper">
+						<div class="label">PAGE 1</div>
+
+						<div class="padded">
+							<h3>Page Title</h3>
+
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Donec eget tortor et ligula pretium commodo.
+								Donec augue ex, molestie quis sapien non, porttitor luctus magna.
+								Aliquam a dapibus dui.
+								Maecenas sed purus risus.
+								Suspendisse ac hendrerit quam. Ut quis efficitur erat.
+								Maecenas hendrerit gravida lobortis.
+								Vivamus suscipit sodales augue quis accumsan.
+							</p>
+						</div>
+
+						<div class="wrapper">
+							<div class="label">SECTIONS</div>
+
+							<div class="padded">
+								<div class="wrapper">
+									<div class="label">SECTION 1</div>
+
+									<div class="padded">
+										<div class="card">
+											<div class="card-header">
+												Section Title
+											</div>
+
+											<div class="card-body">
+												<p>
+													Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+													Donec eget tortor et ligula pretium commodo.
+													Donec augue ex, molestie quis sapien non, porttitor luctus magna.
+													Aliquam a dapibus dui.
+													Maecenas sed purus risus.
+													Suspendisse ac hendrerit quam. Ut quis efficitur erat.
+													Maecenas hendrerit gravida lobortis.
+													Vivamus suscipit sodales augue quis accumsan.
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="wrapper">
+									<div class="label">SECTION 2</div>
+
+									<div class="padded">
+										<div class="card">
+											<div class="card-header">
+												Section Title
+											</div>
+
+											<div class="card-body">
+												<p>
+													Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+													Donec eget tortor et ligula pretium commodo.
+													Donec augue ex, molestie quis sapien non, porttitor luctus magna.
+													Aliquam a dapibus dui.
+													Maecenas sed purus risus.
+													Suspendisse ac hendrerit quam. Ut quis efficitur erat.
+													Maecenas hendrerit gravida lobortis.
+													Vivamus suscipit sodales augue quis accumsan.
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="padded">
+							<div class="row justify-content-between">
+								<div class="col-auto">
+									<p>
+										<button type="button" class="btn btn-primary">Next</button>
+									</p>
+								</div>
+							</div>
+
+							<p>
+								Ut vehicula quam in sapien volutpat, vel rutrum orci fringilla.
+								In in eros tempor neque consequat ornare congue et orci.
+								Vivamus et mi sed libero efficitur vehicula ut id ligula.
+								Nulla congue massa finibus augue posuere placerat.
+							</p>
+						</div>
+					</div>
+
+					<div class="wrapper">
+						<div class="label">PAGE 2</div>
+
+						<div class="padded">
+							<h3>Page Title</h3>
+
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Donec eget tortor et ligula pretium commodo.
+								Donec augue ex, molestie quis sapien non, porttitor luctus magna.
+								Aliquam a dapibus dui.
+								Maecenas sed purus risus.
+								Suspendisse ac hendrerit quam. Ut quis efficitur erat.
+								Maecenas hendrerit gravida lobortis.
+								Vivamus suscipit sodales augue quis accumsan.
+							</p>
+
+							<div class="row justify-content-between">
+								<div class="col-auto">
+									<p>
+										<button type="button" class="btn btn-default">Previous</button>
+										<button type="button" class="btn btn-primary">Next</button>
+									</p>
+								</div>
+							</div>
+
+							<p>
+								Ut vehicula quam in sapien volutpat, vel rutrum orci fringilla.
+								In in eros tempor neque consequat ornare congue et orci.
+								Vivamus et mi sed libero efficitur vehicula ut id ligula.
+								Nulla congue massa finibus augue posuere placerat.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="padded">
+				<p>
+					Ut vehicula quam in sapien volutpat, vel rutrum orci fringilla.
+					In in eros tempor neque consequat ornare congue et orci.
+					Vivamus et mi sed libero efficitur vehicula ut id ligula.
+					Nulla congue massa finibus augue posuere placerat.
+				</p>
+
+				<div class="row justify-content-between">
+					<div class="col-auto">
+						<p>
+							<button type="button" class="btn btn-default">Edit Form</button>
+							<button type="button" class="btn btn-default">Add New Section</button>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
