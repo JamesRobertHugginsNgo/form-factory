@@ -40,7 +40,6 @@
 
 		.card {
 			margin-bottom: 1rem;
-			margin-top: 1rem;
 		}
 
 		.card:last-child {
@@ -60,6 +59,8 @@
 		<h1>Form Factory</h1>
 
 		<form class="dotted">
+			<div class="type">FORM 1</div>
+
 			<h3>Form Title</h3>
 
 			<p>
@@ -69,13 +70,31 @@
 				Proin posuere, lectus eget rhoncus pharetra, nibh erat pharetra enim, eu hendrerit mauris eros dictum dolor.
 			</p>
 
-			<p><button type="button" class="btn btn-secondary">Edit Form</button></p>
+			<div class="row justify-content-between">
+				<div class="col-auto">
+					<p><button type="button" class="btn btn-secondary">Edit Form</button></p>
+				</div>
+
+				<div class="col-auto">
+					<p><button type="button" class="btn btn-secondary">Add New Page</button></p>
+				</div>
+			</div>
 
 			<div class="dotted">
-				<div class="type">PAGE</div>
+				<div class="type">PAGE 1</div>
+
+				<div class="row justify-content-between">
+					<div class="col-auto">
+						<p><button type="button" class="btn btn-secondary">Edit Page</button></p>
+					</div>
+
+					<div class="col-auto">
+						<p><button type="button" class="btn btn-secondary">Add New Section</button></p>
+					</div>
+				</div>
 
 				<div class="card">
-					<div class="type">SECTION</div>
+					<div class="type">SECTION 1</div>
 
 					<div class="card-header">
 						Section Title
@@ -88,17 +107,117 @@
 							Nunc scelerisque vel lorem eu aliquet.
 						</p>
 
-						<p class="card-text"><button type="button" class="btn btn-secondary">Edit Section</button></p>
+						<!-- <p class="card-text"><button type="button" class="btn btn-secondary">Edit Section</button></p> -->
+
+						<div class="row justify-content-between">
+							<div class="col-auto">
+								<p><button type="button" class="btn btn-secondary">Edit Section</button></p>
+							</div>
+
+							<div class="col-auto">
+								<p><button type="button" class="btn btn-secondary">Add New Row</button></p>
+							</div>
+						</div>
 
 						<div class="dotted">
-							<div class="type">ROW</div>
+							<div class="type">ROW 1</div>
 
-							<p class="card-text"><button type="button" class="btn btn-secondary">Edit Row</button></p>
+							<!-- <p class="card-text"><button type="button" class="btn btn-secondary">Edit Row</button></p> -->
+
+							<div class="row justify-content-between">
+								<div class="col-auto">
+									<p><button type="button" class="btn btn-secondary">Edit Row</button></p>
+								</div>
+
+								<div class="col-auto">
+									<p><button type="button" class="btn btn-secondary">Add New Field</button></p>
+								</div>
+							</div>
 
 							<div class="row">
 								<div class="col">
 									<div class="form-group dotted">
-										<div class="type">FIELD</div>
+										<div class="type">FIELD 1</div>
+										<label for="exampleInputEmail1">Email address</label>
+										<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+										<button type="button" class="btn btn-secondary">Edit Field</button>
+									</div>
+								</div>
+
+								<div class="col">
+									<div class="dotted">
+										<div class="type">FIELD 2</div>
+
+										<div class="form-group">
+												<label for="exampleInputEmail1">ID</label>
+												<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+											</div>
+
+										
+										<div class="form-group">
+											<label for="exampleInputEmail1">Label</label>
+											<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+										</div>
+
+										<div class="form-group">
+												<label for="exampleInputEmail1">Type</label>
+												<select class="form-control">
+													<option>Select</option>
+												</select>
+											
+											</div>
+
+											<div class="form-group">
+													<label for="exampleInputEmail1">Pre Help Text</label>
+													<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+												</div>
+
+												<div class="form-group">
+														<label for="exampleInputEmail1">Post Help Text</label>
+														<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+													</div>
+
+										<div class="form-group">
+												<div class="row justify-content-between">
+														<div class="col-auto">
+															<p>
+																<button type="button" class="btn btn-primary">Save Changes</button>
+																<button type="button" class="btn btn-default">Cancel</button>
+															</p>
+														</div>
+							
+														<div class="col-auto">
+															<p><button type="button" class="btn btn-danger">Delete</button></p>
+														</div>
+													</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- <p class="card-text"><button type="button" class="btn btn-secondary">Add New Field</button></p> -->
+						</div>
+
+						<div class="dotted">
+							<div class="type">ROW 2</div>
+
+							<!-- <p class="card-text"><button type="button" class="btn btn-secondary">Edit Row</button></p> -->
+
+							<div class="row justify-content-between">
+								<div class="col-auto">
+									<p><button type="button" class="btn btn-secondary">Edit Row</button></p>
+								</div>
+
+								<div class="col-auto">
+									<p><button type="button" class="btn btn-secondary">Add New Field</button></p>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col">
+									<div class="form-group dotted">
+										<div class="type">FIELD 1</div>
 										<label for="exampleInputEmail1">Email address</label>
 										<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -108,7 +227,7 @@
 
 								<div class="col">
 									<div class="form-group dotted">
-										<div class="type">FIELD</div>
+										<div class="type">FIELD 2</div>
 										<label for="exampleInputEmail1">Email address</label>
 										<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -118,7 +237,17 @@
 
 								<div class="col">
 									<div class="form-group dotted">
-										<div class="type">FIELD</div>
+										<div class="type">FIELD 3</div>
+										<label for="exampleInputEmail1">Email address</label>
+										<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+										<button type="button" class="btn btn-secondary">Edit Field</button>
+									</div>
+								</div>
+
+								<div class="col">
+									<div class="form-group dotted">
+										<div class="type">FIELD 4</div>
 										<label for="exampleInputEmail1">Email address</label>
 										<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -127,14 +256,14 @@
 								</div>
 							</div>
 
-							<p class="card-text"><button type="button" class="btn btn-secondary">Add New Field</button></p>
+							<!-- <p class="card-text"><button type="button" class="btn btn-secondary">Add New Field</button></p> -->
 						</div>
 
-						<p class="card-text"><button type="button" class="btn btn-secondary">Add New Row</button></p>
+						<!-- <p class="card-text"><button type="button" class="btn btn-secondary">Add New Row</button></p> -->
 					</div>
 				</div>
 
-				<p><button type="button" class="btn btn-secondary">Add New Section</button></p>
+				<!-- <p><button type="button" class="btn btn-secondary">Add New Section</button></p> -->
 
 				<div class="row justify-content-between">
 					<div class="col-auto">
@@ -154,8 +283,6 @@
 				Pellentesque varius eget enim at fringilla.
 				Morbi sollicitudin enim a risus efficitur, nec viverra ipsum dignissim.
 			</p>
-
-			<div class="type">FORM</div>
 		</form>
 	</div>
 </body>
