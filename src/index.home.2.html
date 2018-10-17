@@ -118,6 +118,19 @@
 		.row>*[class*="col"]>*:last-child {
 			margin-bottom: 0;
 		}
+
+		.card {
+			margin-top: 1rem;
+			margin-bottom: 1rem;
+		}
+
+		.card:first-child {
+			margin-top: 0;
+		}
+
+		.card:last-child {
+			margin-bottom: 0;
+		}
 	</style>
 
 	<!--[if IE]>
@@ -145,7 +158,7 @@
 				<div class="label">Pages</div>
 
 				<div class="padding">
-					<div class="group">
+					<div class="group" style="border-style: solid; border-radius: 0;">
 						<div class="padding">
 							<h3>Page 1: The First Page</h3>
 
@@ -253,11 +266,106 @@
 									</div>
 								</div>
 
+								<div class="card">
+									<div class="card-header">
+										Section 1: Section Title
+									</div>
+									<div class="padding">
+										<p>In mollis tellus eleifend magna tempor, sit amet dictum risus mollis. Aenean mattis, augue rutrum
+											ullamcorper tempus, lorem justo feugiat orci, ut ultricies dui arcu eget tortor.</p>
+									</div>
 
+									<div class="section">
+										<div class="label">Rows</div>
+
+										<div class="padding">
+											<div class="group">
+												<div class="padding">
+													<div class="row">
+														<div class="col">
+															<div class="group">
+																<div class="padding">
+																	<div class="form-group">
+																		<label>Field Label</label>
+																		<input type="text" class="form-control">
+																		<small id="emailHelp" class="form-text text-muted">Help message.</small>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="col">
+															<div class="group">
+																<div class="padding">
+																	<div class="form-group">
+																		<label>Field Label</label>
+																		<input type="text" class="form-control">
+																		<small id="emailHelp" class="form-text text-muted">Help message.</small>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="col">
+															<div class="group">
+																<div class="padding">
+																	<div class="form-group">
+																		<label>Field Label</label>
+																		<input type="text" class="form-control">
+																		<small id="emailHelp" class="form-text text-muted">Help message.</small>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="group">
+												<div class="padding">
+													<div class="row">
+														<div class="col-4">
+															<div class="group">
+																<div class="padding">
+																	<div class="form-group">
+																		<label>Field Label</label>
+																		<input type="text" class="form-control">
+																		<small id="emailHelp" class="form-text text-muted">Help message.</small>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="col-8">
+															<div class="group">
+																<div class="padding">
+																	<div class="form-group">
+																		<label>Textarea</label>
+																		<textarea class="form-control"></textarea>
+																		<small id="emailHelp" class="form-text text-muted">Help message.</small>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+
+									<div class="padding">
+										<p>Morbi vitae purus pellentesque sapien bibendum dignissim. Nam eu volutpat est. Aenean convallis, leo at
+											venenatis lacinia, nisi nulla auctor lectus, sit amet porta urna velit at nunc.</p>
+									</div>
+								</div>
 							</div>
 						</div>
 
 						<div class="padding">
+							<p>Nullam blandit, sem a venenatis suscipit, quam nisl iaculis neque, sit amet egestas neque lacus elementum
+								tortor.</p>
+
 							<div class="row justify-content-between">
 								<div class="col-6"></div>
 								<div class="col-6">
@@ -265,12 +373,11 @@
 								</div>
 							</div>
 
-							<p>Nullam blandit, sem a venenatis suscipit, quam nisl iaculis neque, sit amet egestas neque lacus elementum
-								tortor.</p>
+							<p>Unless specified, all fields are required.</p>
 						</div>
 					</div>
 
-					<div class="group">
+					<div class="group" style="border-style: solid; border-radius: 0;">
 						<div class="padding">
 							<h3>Page 2: The Middle Page</h3>
 
@@ -291,7 +398,7 @@
 						</div>
 					</div>
 
-					<div class="group">
+					<div class="group" style="border-style: solid; border-radius: 0;">
 						<div class="padding">
 							<h3>Page 3: The Last Page</h3>
 
@@ -312,7 +419,7 @@
 						</div>
 					</div>
 
-					<div class="group">
+					<div class="group" style="border-style: solid; border-radius: 0;">
 						<div class="padding">
 							<h3>Page 4: The Thank You Page</h3>
 
