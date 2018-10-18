@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Form Factory</title>
+
+	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<style>
+		.label {
+			background-color: white;
+			color: darkslategray;
+			font-size: 0.8rem;
+			line-height: 0.8rem;
+			padding: 0 0.5rem;
+			position: absolute;
+			right: 1rem;
+			text-transform: uppercase;
+			top: -0.4rem;
+			white-space: nowrap;
+		}
+
+		.group {
+			border: 1px dashed darkslategray;
+			border-radius: 0.5rem;
+			margin: 1rem 0;
+			position: relative;
+		}
+
+		.section {
+			border-bottom: 1px dashed darkslategray;
+			border-top: 1px dashed darkslategray;
+			position: relative;
+		}
+
+		.section>*:first-child,
+		.section>.label+* {
+			margin-top: 0;
+		}
+
+		.section>.label+.group,
+		.section>.label+.card {
+			margin-top: 0.25rem;
+		}
+
+		.section>*:last-child {
+			margin-bottom: 0;
+		}
+
+		.section:first-child,
+		.label+.section,
+		.section+.section {
+			border-top: 0;
+		}
+
+		.section:last-child {
+			border-bottom: 0;
+		}
+
+		.padded {
+			padding: 1rem;
+		}
+
+		.padded2 {
+			padding: 1rem 0 0 0;
+		}
+
+		.padded2>.group {
+			border-bottom: 0;
+			border-left: 0;
+			border-radius: 0;
+			border-right: 0;
+			margin-bottom: 0;
+			margin-top: 0;
+		}
+
+		.padded2>.label+.group{
+			margin-top: 0.25rem;
+		}
+
+		.page {
+			border-style: solid;
+			border-radius: 0;
+			box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
+		}
+
+		.row {
+			margin-bottom: 1rem;
+			margin-top: 1rem;
+		}
+
+		.row>*[class*="col"]>*:first-child {
+			margin-top: 0;
+		}
+
+		.row>*[class*="col"]>*:last-child {
+			margin-bottom: 0;
+		}
+
+		.card {
+			border-color: darkslategray;
+			margin-bottom: 1rem;
+			margin-top: 1rem;
+			position: relative;
+		}
+
+		.card>.card-header {
+			border-color: darkslategray;
+		}
+
+		.card>.card-header+.section {
+			border-top: 0;
+		}
+	</style>
+
+	<!--[if IE]>
+	<script src="../node_modules/html5shiv/dist/html5shiv.js"></script>
+	<![endif]-->
+	<script src="../node_modules/jquery/dist/jquery.js"></script>
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Form Factory</h1>
+
+		<div class="group">
+			<div class="label">[ <a href="#">Edit Form</a> ]</div>
+
+			<div class="section padded">
+				<h2>Form Title</h2>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In viverra, sem in vulputate facilisis, nisi tellus
+					condimentum mi, ut sodales sapien ligula gravida tortor. Suspendisse potenti.</p>
+			</div>
+
+			<div class="section padded">
+				<div class="label">[ <a href="#">1</a> ][ <a href="#">2</a> ][ <a href="#">3</a> ][ <a href="#">Add Page</a> ]</div>
+
+				<div class="group page">
+					<div class="label">[ <a href="#">Edit Page</a> | <a href="#">Preview Page</a> ]</div>
+
+					<div class="section padded">
+						<h3>Step 1: Page Title</h3>
+
+						<p>Etiam non sagittis enim, sit amet malesuada velit. Suspendisse rhoncus rhoncus orci, nec lacinia enim tempor
+							vel. Aliquam ullamcorper velit tellus, et sagittis purus semper a.</p>
+					</div>
+
+					<div class="section padded">
+						<div class="label">[ <a href="#">Add Section</a> ]</div>
+
+						<div class="card">
+							<div class="label">[ <a href="#">Edit Section</a> ]</div>
+
+							<div class="card-header">
+								Section Title
+							</div>
+
+							<div class="section padded">
+								<p>Mauris ultricies luctus vehicula. Nunc ipsum sem, facilisis quis feugiat ac, hendrerit nec tortor. Nulla et
+									est purus. Fusce imperdiet dolor nisl, mollis ullamcorper dui hendrerit at. Morbi rutrum augue ut nibh
+									faucibus faucibus.</p>
+							</div>
+
+							<div class="section padded2">
+								<div class="label">[ <a href="#">Add Row</a> ]</div>
+
+								<div class="group">
+									<div class="label">[ <a href="#">Edit Row</a> ]</div>
+
+									<div class="section padded2">
+											<div class="label">[ <a href="#">Add Field</a> ]</div>
+											
+										<div class="group">
+											<div class="label">[ <a href="#">Add Field</a> ]</div>
+
+											<div class="section padded">
+												TEST
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="group">
+									<div class="label">[ <a href="#">Edit Row</a> ]</div>
+
+									<div class="section padded">
+										<!-- <div class="label">Fields [ <a href="#">Add Field</a> ]</div> -->
+										TEST
+									</div>
+								</div>
+							</div>
+
+							<div class="section padded">
+								<p>Suspendisse molestie mauris lacus, eget tristique sapien mollis sit amet. Ut eget porttitor ante. Aliquam
+									nunc leo, convallis eu pharetra vitae, efficitur non ligula.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="section padded">
+						<p>Fusce vel maximus mauris. Etiam pretium mattis erat nec vehicula. Nulla non tortor non felis rhoncus tincidunt
+							eu ut odio. Fusce nec urna lorem.</p>
+
+						<div class="row">
+							<div class="col"></div>
+
+							<div class="col">
+								<p><button class="btn btn-block btn-primary btn-lg">Next: Step 2</button></p>
+							</div>
+						</div>
+
+						<p>Nullam vitae erat imperdiet, pretium massa vestibulum, interdum nibh.</p>
+					</div>
+				</div>
+
+				<div class="group page">
+					<div class="label">[ <a href="#">Edit Page</a> | <a href="#">Preview Page</a> ]</div>
+
+					<div class="section padded">
+						<h3>Step 2: Page Title</h3>
+
+						<p>Etiam non sagittis enim, sit amet malesuada velit. Suspendisse rhoncus rhoncus orci, nec lacinia enim tempor
+							vel. Aliquam ullamcorper velit tellus, et sagittis purus semper a.</p>
+
+						<div class="row">
+							<div class="col">
+								<p><button class="btn btn-block btn-default btn-lg">Back: Step 1</button></p>
+							</div>
+
+							<div class="col">
+								<p><button class="btn btn-block btn-primary btn-lg">Next: Step 3</button></p>
+							</div>
+						</div>
+
+						<p>Nullam vitae erat imperdiet, pretium massa vestibulum, interdum nibh.</p>
+					</div>
+				</div>
+
+				<div class="group page">
+					<div class="label">[ <a href="#">Edit Page</a> | <a href="#">Preview Page</a> ]</div>
+
+					<div class="section padded">
+						<h3>Step 3: Page Title</h3>
+
+						<p>Etiam non sagittis enim, sit amet malesuada velit. Suspendisse rhoncus rhoncus orci, nec lacinia enim tempor
+							vel. Aliquam ullamcorper velit tellus, et sagittis purus semper a.</p>
+
+						<div class="row">
+							<div class="col">
+								<p><button class="btn btn-block btn-default btn-lg">Back: Step 2</button></p>
+							</div>
+
+							<div class="col">
+								<p><button class="btn btn-block btn-primary btn-lg">Submit</button></p>
+							</div>
+						</div>
+
+						<p>Nullam vitae erat imperdiet, pretium massa vestibulum, interdum nibh.</p>
+					</div>
+				</div>
+
+				<div class="group page">
+					<div class="label">[ <a href="#">Edit Page</a> | <a href="#">Preview Page</a> ]</div>
+
+					<div class="section padded">
+						<h3>Step 4: Thank You Page</h3>
+
+						<p>Etiam non sagittis enim, sit amet malesuada velit. Suspendisse rhoncus rhoncus orci, nec lacinia enim tempor
+							vel. Aliquam ullamcorper velit tellus, et sagittis purus semper a.</p>
+
+						<div class="row">
+							<div class="col">
+								<p><button class="btn btn-block btn-primary btn-lg">Start Over</button></p>
+							</div>
+
+							<div class="col"></div>
+						</div>
+
+						<p>Nullam vitae erat imperdiet, pretium massa vestibulum, interdum nibh.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="section padded">
+				<p>Cras pretium lacus sed nisi elementum, sit amet tincidunt mauris dictum. Aliquam pretium, sapien quis placerat
+					gravida, tortor enim finibus tortor, id sodales felis magna pharetra ligula.</p>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
