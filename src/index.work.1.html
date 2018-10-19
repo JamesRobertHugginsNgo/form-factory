@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Form Factory</title>
+
+	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<style>
+		.group {
+			border: 1px dashed darkslategray;
+			position: relative;
+		}
+
+		.group+.group {
+			margin-top: 1rem;
+		}
+
+		.ender,
+		.label {
+			background-color: white;
+			color: darkslategray;
+			font-size: 0.8rem;
+			line-height: 0.8rem;
+			padding: 0 0.5rem;
+			position: absolute;
+			text-transform: uppercase;
+		}
+
+		.ender {
+			left: 1rem;
+			bottom: -0.4rem;
+		}
+
+		.label {
+			left: 1rem;
+			top: -0.4rem;
+		}
+
+		.section {
+			border-bottom: 1px dashed darkslategray;
+			border-top: 1px dashed darkslategray;
+			position: relative;
+		}
+
+		.label+.section,
+		.section+.section {
+			border-top: 0;
+		}
+
+		.section:first-child {
+			border-top: 0;
+		}
+
+		.section:last-child {
+			border-bottom: 0;
+		}
+
+		.padded {
+			padding: 1rem;
+		}
+	</style>
+
+	<!--[if IE]>
+	<script src="../node_modules/html5shiv/dist/html5shiv.js"></script>
+	<![endif]-->
+	<script src="../node_modules/jquery/dist/jquery.js"></script>
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Form Factory</h1>
+
+		<div class="group">
+			<div class="label">Form</div>
+
+			<div class="section padded">
+				<h2>Form Title</h2>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas posuere, purus id facilisis accumsan, turpis
+					dolor feugiat elit, varius accumsan ipsum magna ac purus. Suspendisse imperdiet dictum ex ac aliquet. Ut at
+					imperdiet quam, sit amet faucibus nisl. Pellentesque in eros et ipsum consectetur fermentum condimentum id magna.
+					Aenean dapibus leo quis volutpat lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada
+					fames ac turpis egestas. Sed vel fringilla orci. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+					Proin cursus feugiat libero eu mollis.</p>
+			</div>
+
+			<div class="section padded">
+				<div class="label">Pages Begins</div>
+
+				<div class="group">
+					<div class="section padded">
+						<h3>Page 1 - Test Page</h3>
+
+						<p>Aenean ut venenatis purus, vitae mattis ante. Phasellus ullamcorper urna non faucibus pulvinar. Donec
+							tincidunt
+							felis erat, quis suscipit lectus congue id. Maecenas non mi et libero aliquam condimentum. Pellentesque ac
+							molestie metus. Maecenas tempus augue sed tincidunt malesuada. Nulla nec mauris non ipsum dapibus rhoncus eget
+							ac
+							massa. Morbi eget lectus id leo consequat rhoncus vel ultricies nisi. Suspendisse ornare, odio ac maximus
+							efficitur, neque nunc lacinia tortor, sed iaculis enim sem sed nulla.</p>
+					</div>
+
+					<div class="section padded">
+						<h3>Page 1 - Test Page</h3>
+
+						<p>Aenean ut venenatis purus, vitae mattis ante. Phasellus ullamcorper urna non faucibus pulvinar. Donec
+							tincidunt
+							felis erat, quis suscipit lectus congue id. Maecenas non mi et libero aliquam condimentum. Pellentesque ac
+							molestie metus. Maecenas tempus augue sed tincidunt malesuada. Nulla nec mauris non ipsum dapibus rhoncus eget
+							ac
+							massa. Morbi eget lectus id leo consequat rhoncus vel ultricies nisi. Suspendisse ornare, odio ac maximus
+							efficitur, neque nunc lacinia tortor, sed iaculis enim sem sed nulla.</p>
+					</div>
+				</div>
+
+				<div class="group">
+					<div class="section padded">
+						<h3>Page 1 - Test Page</h3>
+
+						<p>Aenean ut venenatis purus, vitae mattis ante. Phasellus ullamcorper urna non faucibus pulvinar. Donec
+							tincidunt
+							felis erat, quis suscipit lectus congue id. Maecenas non mi et libero aliquam condimentum. Pellentesque ac
+							molestie metus. Maecenas tempus augue sed tincidunt malesuada. Nulla nec mauris non ipsum dapibus rhoncus eget
+							ac
+							massa. Morbi eget lectus id leo consequat rhoncus vel ultricies nisi. Suspendisse ornare, odio ac maximus
+							efficitur, neque nunc lacinia tortor, sed iaculis enim sem sed nulla.</p>
+					</div>
+				</div>
+
+				<div class="group">
+					<div class="section padded">
+						<h3>Page 1 - Test Page</h3>
+
+						<p>Aenean ut venenatis purus, vitae mattis ante. Phasellus ullamcorper urna non faucibus pulvinar. Donec
+							tincidunt
+							felis erat, quis suscipit lectus congue id. Maecenas non mi et libero aliquam condimentum. Pellentesque ac
+							molestie metus. Maecenas tempus augue sed tincidunt malesuada. Nulla nec mauris non ipsum dapibus rhoncus eget
+							ac
+							massa. Morbi eget lectus id leo consequat rhoncus vel ultricies nisi. Suspendisse ornare, odio ac maximus
+							efficitur, neque nunc lacinia tortor, sed iaculis enim sem sed nulla.</p>
+					</div>
+				</div>
+
+				<div class="ender">End of Pages</div>
+			</div>
+
+			<div class="section padded">
+				<p>Praesent placerat eros sed eros viverra hendrerit. Etiam sed dolor ligula. Vestibulum id lacinia urna.
+					Pellentesque massa justo, tempus a porttitor vel, laoreet non mi. Phasellus fringilla ex elit, sed pulvinar eros
+					consequat ac. Nullam vel malesuada nisi. Vestibulum et dignissim magna. Donec mi nunc, molestie id nibh quis,
+					rutrum congue tellus. Sed vehicula ipsum vitae pharetra euismod. Sed non egestas nunc. Praesent fringilla molestie
+					metus, at elementum metus ultricies ac.</p>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

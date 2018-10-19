@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Form Factory</title>
+
+	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<style>
+		.outside {
+			border: 1px dashed darkslategray;
+			border-radius: 0.5rem;
+			margin-bottom: 1rem;
+			margin-top: 1rem;
+			position: relative;
+		}
+
+		.outside:first-child {
+			margin-top: 0;
+		}
+
+		.outside:last-child {
+			margin-bottom: 0;
+		}
+
+		.outside>.inside>*:first-child {
+			margin-top: 0;
+		}
+
+		.outside>.inside>*:last-child {
+			margin-bottom: 0;
+		}
+
+		.outside>.inside>.outside {
+			border-left-width: 0;
+			border-right-width: 0;
+			border-radius: 0;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+
+		.outside>.inside>.outside:first-child {
+			border-top-width: 0;
+		}
+
+		.outside>.inside>.outside+.outside {
+			border-top-width: 0;
+		}
+
+		.outside>.inside>.outside:last-child {
+			border-bottom-width: 0;
+		}
+
+		.label,
+		.label2 {
+			background-color: white;
+			font-size: 0.8rem;
+			line-height: 0.8rem;
+			padding-left: 1rem;
+			padding-right: 1rem;
+			position: absolute;
+			text-transform: uppercase;
+			top: -0.4rem;
+			z-index: 2;
+		}
+
+		.label {
+			left: 1rem;
+		}
+
+		.label2 {
+			right: 1rem;
+		}
+
+		.outside>.inside.padded {
+			padding: 1rem;
+		}
+
+		.outside>.inside.padded2 {
+			padding: 1rem 0 0 0;
+		}
+
+		.outside>.inside.padded2>.outside:first-child {
+			border-top-width: 1px;
+		}
+
+		.row {
+			margin-bottom: 1rem;
+			margin-top: 1rem;
+		}
+
+		.row>*[class*="col"]>*:first-child {
+			margin-top: 0;
+		}
+
+		.row>*[class*="col"]>*:last-child {
+			margin-bottom: 0;
+		}
+
+		.card>.outside {
+			border-left: 0;
+			border-right: 0;
+			border-radius: 0;
+		}
+
+		.card>.outside:first-child,
+		.card>.card-header+.outside {
+			border-top-width: 0;
+			margin-top: 0;
+		}
+
+		.card>.outside:last-child {
+			border-bottom-width: 0;
+		}
+	</style>
+
+	<!--[if IE]>
+	<script src="../node_modules/html5shiv/dist/html5shiv.js"></script>
+	<![endif]-->
+	<script src="../node_modules/jquery/dist/jquery.js"></script>
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Form Factory</h1>
+
+		<div class="outside">
+			<div class="label">Form [ <a href="#">Edit</a>]</div>
+
+			<div class="inside">
+				<div class="outside">
+					<div class="inside padded">
+						<h2>Form Title</h2>
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus interdum ipsum vitae facilisis. Donec
+							semper tempus pretium. Donec sed nunc tempus, pellentesque lacus eu, semper tortor. Etiam pellentesque finibus
+							nibh, at venenatis magna pharetra in.</p>
+					</div>
+				</div>
+
+				<div class="outside">
+					<div class="label2">Pages [ <strong>1</strong> | <a href="#">2</a> | <a href="#">3</a>
+						| <a href="#">4</a> | <a href="#">5</a> ] | <a href="#">Add Page</a> ]</div>
+
+					<div class="inside">
+						<!-- <div> -->
+						<div class="outside">
+							<div class="label">Page [ <a href="#">Edit</a>]</div>
+
+							<div class="inside">
+								<div class="outside">
+									<div class="inside padded">
+										<h3>Page 1: Front Page</h3>
+
+										<p>Aliquam condimentum diam vel rhoncus euismod. Maecenas id posuere eros, in vulputate lacus. Nulla dolor
+											neque, consectetur a lectus a, congue sollicitudin ipsum. Etiam a felis in est varius mattis. Pellentesque
+											convallis convallis leo nec iaculis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+											inceptos himenaeos. Mauris ac bibendum lectus.</p>
+									</div>
+								</div>
+
+								<div class="outside">
+									<div class="label2">Sections [ <a href="#">Add Section</a> ]</div>
+
+									<div class="inside padded">
+										<div class="card">
+											<div class="label">Sections [ <a href="#">Edit Section</a> ]</div>
+
+											<div class="card-header">
+												Section 1
+											</div>
+
+											<div class="outside">
+												<div class="inside padded">
+													TEST
+												</div>
+											</div>
+
+											<div class="outside">
+													<div class="inside padded">
+														TEST
+													</div>
+												</div>
+
+												<div class="outside">
+														<div class="inside padded">
+															TEST
+														</div>
+													</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="outside">
+									<div class="inside padded">
+										<p>Aliquam at mauris blandit, consectetur quam vel, scelerisque mi. Lorem ipsum dolor sit amet, consectetur
+											adipiscing elit. Suspendisse sagittis porttitor ullamcorper.</p>
+
+										<div class="row">
+											<div class="col">
+												<p>
+													<button class="btn btn-block btn-default btn-lrg">Back</button>
+												</p>
+											</div>
+											<div class="col">
+												<p>
+													<button class="btn btn-block btn-lrg btn-primary">Next</button>
+												</p>
+											</div>
+										</div>
+
+										<p>Sed ut dolor nunc. Etiam id iaculis risus. Etiam felis magna, suscipit non justo in, venenatis fermentum
+											ipsum. Curabitur at mi neque.</p>
+									</div>
+								</div>
+								<!--
+								<div class="outside">
+									<div class="label">Page [ <a href="#">Edit</a>]</div>
+
+									<div class="inside padded">
+										TEST
+									</div>
+								</div>
+
+								<div class="outside">
+									<div class="label">Page [ <a href="#">Edit</a>]</div>
+
+									<div class="inside padded">
+										test
+									</div>
+								</div>
+								-->
+								<!-- </div> -->
+							</div>
+						</div>
+
+						<div class="outside">
+							<div class="inside padded">
+								<p>Fusce posuere risus ac eleifend mattis. Etiam rutrum eu nibh elementum consequat. Quisque consectetur purus
+									nec arcu vehicula hendrerit. Vivamus hendrerit sollicitudin tellus, a vulputate lectus.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+</body>
+
+</html>
