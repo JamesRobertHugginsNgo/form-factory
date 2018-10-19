@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Form Factory</title>
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+	 crossorigin="anonymous">
+	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<style>
+		.group {
+			border: 1px dotted gray;
+			border-radius: 0.25rem;
+			margin-bottom: 1rem;
+			margin-top: 1rem;
+			position: relative;
+		}
+
+		.group-footer-left,
+		.group-footer-right,
+		.group-header-left,
+		.group-header-right {
+			background-color: white;
+			color: gray;
+			font-size: 0.75rem;
+			line-height: 1rem;
+			padding-left: 0.5rem;
+			padding-right: 0.5rem;
+			position: absolute;
+
+		}
+
+		.group-footer-left,
+		.group-footer-right {
+			bottom: -0.5rem;
+		}
+
+		.group-header-left,
+		.group-header-right {
+			top: -0.5rem;
+		}
+
+		.group-footer-left,
+		.group-header-left {
+			left: 0.5rem;
+		}
+
+		.group-footer-right,
+		.group-header-right {
+			right: 0.5rem;
+		}
+
+		.group-body-section {
+			border-top: 1px dotted gray;
+		}
+
+		.group-body-section:first-child {
+			border-top: 0;
+		}
+
+		.group-body-section>*:first-child {
+			margin-top: 0;
+		}
+
+		.group-body-section>*:last-child {
+			margin-bottom: 0;
+		}
+
+		.group-body-section>.group {
+			border-width: 1px 0;
+			border-radius: 0;
+		}
+
+		.group-body-section>.group:first-child {
+			border-top-width: 0;
+			border-radius: 0;
+		}
+
+		.group-body-section>.group:last-child {
+			border-bottom-width: 0;
+			border-radius: 0;
+		}
+
+		.group-body-section.padded {
+			padding: 1rem;
+		}
+
+		.group-body-section.padded>.group {
+			border-width: 1px;
+			border-radius: 0.25rem;
+		}
+
+		.group-body-section.padded-top {
+			padding-top: 1rem;
+		}
+
+		.group-body-section.padded-top>.group {
+			border-top-width: 1px;
+		}
+
+		.group-body-section>.row>[class*="col"]>.group {
+			border-width: 0 0 0 1px;
+			border-radius: 0;
+			height: 100%;
+		}
+
+		.group-body-section>.row>[class*="col"]:first-child>.group {
+			border-width: 0;
+		}
+
+		.row {
+			margin-bottom: 1rem;
+			margin-top: 1rem;
+		}
+
+		.row>[class*="col"]>*:first-child {
+			margin-top: 0;
+		}
+
+		.row>[class*="col"]>*:last-child {
+			margin-bottom: 0;
+		}
+
+		.group-body-section.padded>.group.page {
+			border-style: solid;
+			border-width: 2px;
+			border-radius: 0;
+		}
+
+		.group-body-section.padded>.group.section {
+			background-color: #f5f5f5;
+			border-radius: 0.5rem;
+			border-style: solid;
+			color: black;
+		}
+
+		.group-body-section.padded>.group.section .group-footer-left,
+		.group-body-section.padded>.group.section .group-footer-right,
+		.group-body-section.padded>.group.section .group-header-left,
+		.group-body-section.padded>.group.section .group-header-right {
+			background-color: #f5f5f5;
+		}
+
+		label {
+			font-weight: bold;
+		}
+
+		label + small.form-text {
+			margin-bottom: 4px;
+			margin-top: 0;
+		}
+	</style>
+
+	<!--[if IE]>
+	<script src="../node_modules/html5shiv/dist/html5shiv.js"></script>
+	<![endif]-->
+	<script src="../node_modules/jquery/dist/jquery.js"></script>
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Form Factory</h1>
+
+		<div class="group">
+			<div class="group-header">
+				<div class="group-header-left">FORM [ <a href="#">EDIT</a> | <a href="#">PREVIEW</a> ]</div>
+				<div class="group-header-right"></div>
+			</div>
+
+			<div class="group-body">
+				<div class="group-body-section padded">
+					<h2>Form Title</h2>
+
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				</div>
+
+				<div class="group-body-section">
+					<div class="group">
+						<div class="group-header">
+							<div class="group-header-left"></div>
+							<div class="group-header-right">
+								PAGES [ <a href="#">1</a> | <a href="#">2</a> | <a href="#">3</a> | <a href="#">4</a> | <a href="#">ADD</a> ]
+							</div>
+						</div>
+
+						<div class="group-body">
+							<div class="group-body-section padded">
+								<div class="group page">
+									<div class="group-header">
+										<div class="group-header-left">PAGE 1 [ <a href="#">EDIT</a> | <a href="#">PREVIEW</a> ]</div>
+										<div class="group-header-right"></div>
+									</div>
+
+									<div class="group-body">
+										<div class="group-body-section padded">
+											<h3>Page Title</h3>
+
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+										</div>
+
+										<div class="group-body-section">
+											<div class="group">
+												<div class="group-header">
+													<div class="group-header-left"></div>
+													<div class="group-header-right">
+														SECTIONS [ <a href="#">ADD</a> ]
+													</div>
+												</div>
+
+												<div class="group-body">
+													<div class="group-body-section padded">
+														<div class="group section">
+															<div class="group-header">
+																<div class="group-header-left">SECTION 1 [ <a href="#">EDIT</a> ]</div>
+																<div class="group-header-right"></div>
+															</div>
+
+															<div class="group-body">
+																<div class="group-body-section padded">
+																	<h4>Section Title</h4>
+
+																	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+																</div>
+
+																<div class="group-body-section">
+																	<div class="group">
+																		<div class="group-header">
+																			<div class="group-header-left"></div>
+																			<div class="group-header-right">
+																				ROWS [ <a href="#">ADD</a> ]
+																			</div>
+																		</div>
+
+																		<div class="group-body">
+																			<div class="group-body-section">
+																				<div class="group">
+																					<div class="group-header">
+																						<div class="group-header-left">ROW 1 [ <a href="#">EDIT</a> ]</div>
+																						<div class="group-header-right"></div>
+																					</div>
+
+																					<div class="group-body">
+																						<div class="group-body-section padded-top">
+																							<div class="group">
+																								<div class="group-header">
+																									<div class="group-header-left"></div>
+																									<div class="group-header-right">FIELDS [ <a href="#">ADD</a> ]</div>
+																								</div>
+
+																								<div class="group-body">
+																									<div class="group-body-section">
+																										<div class="row no-gutters row-eq-height">
+																											<div class="col">
+																												<div class="group">
+																													<div class="group-header">
+																														<div class="group-header-left">FIELD [ <a href="#">EDIT</a> ]</div>
+																														<div class="group-header-right"></div>
+																													</div>
+
+																													<div class="group-body">
+																														<div class="group-body-section padded">
+																															<div class="form-group">
+																																<label>Text Field 1</label>
+																																<small class="form-text text-muted">Lorem ipsum dolor sit amet</small>
+																																<input type="text" class="form-control">
+																																<small class="form-text text-muted">Lorem ipsum dolor sit amet</small>
+																															</div>
+																														</div>
+																													</div>
+
+																													<div class="group-footer">
+																														<div class="group-footer-left"></div>
+																														<div class="group-footer-right"></div>
+																													</div>
+																												</div>
+																											</div>
+
+																											<div class="col">
+																												<div class="group">
+																													<div class="group-header">
+																														<div class="group-header-left">FIELD [ <a href="#">EDIT</a> ]</div>
+																														<div class="group-header-right"></div>
+																													</div>
+
+																													<div class="group-body">
+																														<div class="group-body-section padded">
+																															<div class="form-group">
+																																<label>Text Field 2</label>
+																																<small class="form-text text-muted">Lorem ipsum dolor sit amet</small>
+																																<input type="text" class="form-control">
+																																<small class="form-text text-muted">Lorem ipsum dolor sit amet</small>
+																															</div>
+																														</div>
+																													</div>
+
+																													<div class="group-footer">
+																														<div class="group-footer-left"></div>
+																														<div class="group-footer-right"></div>
+																													</div>
+																												</div>
+																											</div>
+
+																											<div class="col">
+																												<div class="group">
+																													<div class="group-header">
+																														<div class="group-header-left">FIELD [ <a href="#">EDIT</a> ]</div>
+																														<div class="group-header-right"></div>
+																													</div>
+
+																													<div class="group-body">
+																														<div class="group-body-section padded">
+																															<div class="form-group">
+																																<label>Text Field 3</label>
+																																<small class="form-text text-muted">Lorem ipsum dolor sit amet</small>
+																																<input type="text" class="form-control">
+																																<small class="form-text text-muted">Lorem ipsum dolor sit amet</small>
+																															</div>
+																														</div>
+																													</div>
+
+																													<div class="group-footer">
+																														<div class="group-footer-left"></div>
+																														<div class="group-footer-right"></div>
+																													</div>
+																												</div>
+																											</div>
+
+																											<div class="col">
+																												<div class="group">
+																													<div class="group-header">
+																														<div class="group-header-left">FIELD [ <a href="#">EDIT</a> ]</div>
+																														<div class="group-header-right"></div>
+																													</div>
+
+																													<div class="group-body">
+																														<div class="group-body-section padded">
+																															<div class="form-group">
+																																<label>Text Field 4</label>
+																																<small class="form-text text-muted">Lorem ipsum dolor sit amet</small>
+																																<input type="text" class="form-control">
+																																<small class="form-text text-muted">Lorem ipsum dolor sit amet</small>
+																															</div>
+																														</div>
+																													</div>
+
+																													<div class="group-footer">
+																														<div class="group-footer-left"></div>
+																														<div class="group-footer-right"></div>
+																													</div>
+																												</div>
+																											</div>
+																										</div>
+
+																									</div>
+																								</div>
+
+																								<div class="group-footer">
+																									<div class="group-footer-left"></div>
+																									<div class="group-footer-right"></div>
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+
+																					<div class="group-footer">
+																						<div class="group-footer-left"></div>
+																						<div class="group-footer-right"></div>
+																					</div>
+																				</div>
+																			</div>
+
+																			<div class="group-body-section">
+																				<div class="group">
+																					<div class="group-header">
+																						<div class="group-header-left">ROW 2 [ <a href="#">EDIT</a> ]</div>
+																						<div class="group-header-right"></div>
+																					</div>
+
+																					<div class="group-body">
+																						<div class="group-body-section padded-top">
+																							<div class="group">
+																								<div class="group-header">
+																									<div class="group-header-left"></div>
+																									<div class="group-header-right">FIELDS [ <a href="#">ADD</a> ]</div>
+																								</div>
+
+																								<div class="group-body">
+																									<div class="group-body-section">
+																										<div class="row no-gutters row-eq-height">
+																											<div class="col">
+																												<div class="group">
+																													<div class="group-header">
+																														<div class="group-header-left">FIELD [ <a href="#">EDIT</a> ]</div>
+																														<div class="group-header-right"></div>
+																													</div>
+
+																													<div class="group-body">
+																														<div class="group-body-section padded">
+																															<div class="form-group">
+																																<label for="exampleFormControlInput1">Email address</label>
+																																<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+																															</div>
+																														</div>
+																													</div>
+
+																													<div class="group-footer">
+																														<div class="group-footer-left"></div>
+																														<div class="group-footer-right"></div>
+																													</div>
+																												</div>
+																											</div>
+
+																											<div class="col">
+																												<div class="group">
+																													<div class="group-header">
+																														<div class="group-header-left">FIELD [ <a href="#">EDIT</a> ]</div>
+																														<div class="group-header-right"></div>
+																													</div>
+
+																													<div class="group-body">
+																														<div class="group-body-section padded">
+																															<div class="form-group">
+																																<label for="exampleFormControlInput1">Email address</label>
+																																<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+																															</div>
+																														</div>
+																													</div>
+
+																													<div class="group-footer">
+																														<div class="group-footer-left"></div>
+																														<div class="group-footer-right"></div>
+																													</div>
+																												</div>
+																											</div>
+																										</div>
+
+																									</div>
+																								</div>
+
+																								<div class="group-footer">
+																									<div class="group-footer-left"></div>
+																									<div class="group-footer-right"></div>
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+
+																					<div class="group-footer">
+																						<div class="group-footer-left"></div>
+																						<div class="group-footer-right"></div>
+																					</div>
+																				</div>
+																			</div>
+
+																			<div class="group-body-section">
+																				<div class="group">
+																					<div class="group-header">
+																						<div class="group-header-left">ROW 3 [ <a href="#">EDIT</a> ]</div>
+																						<div class="group-header-right"></div>
+																					</div>
+
+																					<div class="group-body">
+																						<div class="group-body-section padded-top">
+																							<div class="group">
+																								<div class="group-header">
+																									<div class="group-header-left"></div>
+																									<div class="group-header-right">FIELDS [ <a href="#">ADD</a> ]</div>
+																								</div>
+
+																								<div class="group-body">
+																									<div class="group-body-section">
+																										<div class="row no-gutters row-eq-height">
+																											<div class="col">
+																												<div class="group">
+																													<div class="group-header">
+																														<div class="group-header-left">FIELD [ <a href="#">EDIT</a> ]</div>
+																														<div class="group-header-right"></div>
+																													</div>
+
+																													<div class="group-body">
+																														<div class="group-body-section padded">
+																															<div class="form-group">
+																																<label>Textarea Field</label>
+																																<small class="form-text text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing
+																																	elit</small>
+																																<textarea class="form-control"></textarea>
+																																<small class="form-text text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing
+																																	elit</small>
+																															</div>
+																														</div>
+																													</div>
+
+																													<div class="group-footer">
+																														<div class="group-footer-left"></div>
+																														<div class="group-footer-right"></div>
+																													</div>
+																												</div>
+																											</div>
+																										</div>
+																									</div>
+																								</div>
+
+																								<div class="group-footer">
+																									<div class="group-footer-left"></div>
+																									<div class="group-footer-right"></div>
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+
+																					<div class="group-footer">
+																						<div class="group-footer-left"></div>
+																						<div class="group-footer-right"></div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+
+																		<div class="group-footer">
+																			<div class="group-footer-left"></div>
+																			<div class="group-footer-right">
+																				ROWS [ <a href="#">ADD</a> ]
+																			</div>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="group-body-section padded">
+																	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+																</div>
+															</div>
+
+															<div class="group-footer">
+																<div class="group-footer-left"></div>
+																<div class="group-footer-right"></div>
+															</div>
+														</div>
+
+														<div class="group section">
+															<div class="group-header">
+																<div class="group-header-left">SECTION 2 [ <a href="#">EDIT</a> ]</div>
+																<div class="group-header-right"></div>
+															</div>
+
+															<div class="group-body">
+																<div class="group-body-section padded">
+																	<h4>Contact Information</h4>
+																</div>
+
+																<div class="group-body-section">
+																	<div class="group">
+																		<div class="group-header">
+																			<div class="group-header-left"></div>
+																			<div class="group-header-right">
+																				ROWS [ <a href="#">ADD</a> ]
+																			</div>
+																		</div>
+
+																		<div class="group-body">
+																			<div class="group-body-section">
+																				<div class="group">
+																					<div class="group-header">
+																						<div class="group-header-left">ROW 1 [ <a href="#">EDIT</a> ]</div>
+																						<div class="group-header-right"></div>
+																					</div>
+
+																					<div class="group-body">
+																						<div class="group-body-section padded-top">
+																							<div class="group">
+																								<div class="group-header">
+																									<div class="group-header-left"></div>
+																									<div class="group-header-right">FIELDS [ <a href="#">ADD</a> ]</div>
+																								</div>
+
+																								<div class="group-body">
+																									<div class="group-body-section">
+																										<div class="row no-gutters row-eq-height">
+																											<div class="col">
+																												<div class="group">
+																													<div class="group-header">
+																														<div class="group-header-left">FIELD [ <a href="#">EDIT</a> ]</div>
+																														<div class="group-header-right"></div>
+																													</div>
+
+																													<div class="group-body">
+																														<div class="group-body-section padded">
+																															<div class="form-group">
+																																<label>Single Name</label>
+																																<input type="text" class="form-control">
+																															</div>
+																														</div>
+																													</div>
+
+																													<div class="group-footer">
+																														<div class="group-footer-left"></div>
+																														<div class="group-footer-right"></div>
+																													</div>
+																												</div>
+																											</div>
+																										</div>
+
+																									</div>
+																								</div>
+
+																								<div class="group-footer">
+																									<div class="group-footer-left"></div>
+																									<div class="group-footer-right"></div>
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+
+																					<div class="group-footer">
+																						<div class="group-footer-left"></div>
+																						<div class="group-footer-right"></div>
+																					</div>
+																				</div>
+																			</div>
+
+																			<div class="group-body-section">
+																				<div class="group">
+																					<div class="group-header">
+																						<div class="group-header-left">ROW 2 [ <a href="#">EDIT</a> ]</div>
+																						<div class="group-header-right"></div>
+																					</div>
+
+																					<div class="group-body">
+																						<div class="group-body-section padded-top">
+																							<div class="group">
+																								<div class="group-header">
+																									<div class="group-header-left"></div>
+																									<div class="group-header-right">FIELDS [ <a href="#">ADD</a> ]</div>
+																								</div>
+
+																								<div class="group-body">
+																									<div class="group-body-section">
+																										<div class="row no-gutters row-eq-height">
+																											<div class="col">
+																												<div class="group">
+																													<div class="group-header">
+																														<div class="group-header-left">FIELD [ <a href="#">EDIT</a> ]</div>
+																														<div class="group-header-right"></div>
+																													</div>
+
+																													<div class="group-body">
+																														<div class="group-body-section padded">
+																															<div class="form-group">
+																																<label>First Name</label>
+																																<input type="text" class="form-control">
+																															</div>
+																														</div>
+																													</div>
+
+																													<div class="group-footer">
+																														<div class="group-footer-left"></div>
+																														<div class="group-footer-right"></div>
+																													</div>
+																												</div>
+																											</div>
+
+																											<div class="col">
+																												<div class="group">
+																													<div class="group-header">
+																														<div class="group-header-left">FIELD [ <a href="#">EDIT</a> ]</div>
+																														<div class="group-header-right"></div>
+																													</div>
+
+																													<div class="group-body">
+																														<div class="group-body-section padded">
+																															<div class="form-group">
+																																<label>Last Name</label>
+																																<input type="text" class="form-control">
+																															</div>
+																														</div>
+																													</div>
+
+																													<div class="group-footer">
+																														<div class="group-footer-left"></div>
+																														<div class="group-footer-right"></div>
+																													</div>
+																												</div>
+																											</div>
+																										</div>
+																									</div>
+																								</div>
+
+																								<div class="group-footer">
+																									<div class="group-footer-left"></div>
+																									<div class="group-footer-right"></div>
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+
+																					<div class="group-footer">
+																						<div class="group-footer-left"></div>
+																						<div class="group-footer-right"></div>
+																					</div>
+																				</div>
+																			</div>
+
+																			<div class="group-body-section">
+																				<div class="group">
+																					<div class="group-header">
+																						<div class="group-header-left">ROW 3 [ <a href="#">EDIT</a> ]</div>
+																						<div class="group-header-right"></div>
+																					</div>
+
+																					<div class="group-body">
+																						<div class="group-body-section padded-top">
+																							<div class="group">
+																								<div class="group-header">
+																									<div class="group-header-left"></div>
+																									<div class="group-header-right">FIELDS [ <a href="#">ADD</a> ]</div>
+																								</div>
+
+																								<div class="group-body">
+																									<div class="group-body-section">
+																										<div class="row no-gutters row-eq-height">
+																											<div class="col">
+																												<div class="group">
+																													<div class="group-header">
+																														<div class="group-header-left">FIELD [ <a href="#">EDIT</a> ]</div>
+																														<div class="group-header-right"></div>
+																													</div>
+
+																													<div class="group-body">
+																														<div class="group-body-section padded">
+																															<div class="form-group">
+																																<label>Address 1</label>
+																																<input type="text" class="form-control">
+																															</div>
+																														</div>
+																													</div>
+
+																													<div class="group-footer">
+																														<div class="group-footer-left"></div>
+																														<div class="group-footer-right"></div>
+																													</div>
+																												</div>
+																											</div>
+																										</div>
+
+																									</div>
+																								</div>
+
+																								<div class="group-footer">
+																									<div class="group-footer-left"></div>
+																									<div class="group-footer-right"></div>
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+
+																					<div class="group-footer">
+																						<div class="group-footer-left"></div>
+																						<div class="group-footer-right"></div>
+																					</div>
+																				</div>
+																			</div>
+
+																			<div class="group-body-section">
+																				<div class="group">
+																					<div class="group-header">
+																						<div class="group-header-left">ROW 4 [ <a href="#">EDIT</a> ]</div>
+																						<div class="group-header-right"></div>
+																					</div>
+
+																					<div class="group-body">
+																						<div class="group-body-section padded-top">
+																							<div class="group">
+																								<div class="group-header">
+																									<div class="group-header-left"></div>
+																									<div class="group-header-right">FIELDS [ <a href="#">ADD</a> ]</div>
+																								</div>
+
+																								<div class="group-body">
+																									<div class="group-body-section">
+																										<div class="row no-gutters row-eq-height">
+																											<div class="col">
+																												<div class="group">
+																													<div class="group-header">
+																														<div class="group-header-left">FIELD [ <a href="#">EDIT</a> ]</div>
+																														<div class="group-header-right"></div>
+																													</div>
+
+																													<div class="group-body">
+																														<div class="group-body-section padded">
+																															<div class="form-group">
+																																<label>Address 2</label>
+																																<input type="text" class="form-control">
+																															</div>
+																														</div>
+																													</div>
+
+																													<div class="group-footer">
+																														<div class="group-footer-left"></div>
+																														<div class="group-footer-right"></div>
+																													</div>
+																												</div>
+																											</div>
+																										</div>
+
+																									</div>
+																								</div>
+
+																								<div class="group-footer">
+																									<div class="group-footer-left"></div>
+																									<div class="group-footer-right"></div>
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+
+																					<div class="group-footer">
+																						<div class="group-footer-left"></div>
+																						<div class="group-footer-right"></div>
+																					</div>
+																				</div>
+																			</div>
+
+																			<div class="group-body-section">
+																				<div class="group">
+																					<div class="group-header">
+																						<div class="group-header-left">ROW 5 [ <a href="#">EDIT</a> ]</div>
+																						<div class="group-header-right"></div>
+																					</div>
+
+																					<div class="group-body">
+																						<div class="group-body-section padded-top">
+																							<div class="group">
+																								<div class="group-header">
+																									<div class="group-header-left"></div>
+																									<div class="group-header-right">FIELDS [ <a href="#">ADD</a> ]</div>
+																								</div>
+
+																								<div class="group-body">
+																									<div class="group-body-section">
+																										<div class="row no-gutters row-eq-height">
+																											<div class="col">
+																												<div class="group">
+																													<div class="group-header">
+																														<div class="group-header-left">FIELD [ <a href="#">EDIT</a> ]</div>
+																														<div class="group-header-right"></div>
+																													</div>
+
+																													<div class="group-body">
+																														<div class="group-body-section padded">
+																															<div class="form-group">
+																																<label>City</label>
+																																<input type="text" value="Toronto" class="form-control">
+																															</div>
+																														</div>
+																													</div>
+
+																													<div class="group-footer">
+																														<div class="group-footer-left"></div>
+																														<div class="group-footer-right"></div>
+																													</div>
+																												</div>
+																											</div>
+
+																											<div class="col">
+																												<div class="group">
+																													<div class="group-header">
+																														<div class="group-header-left">FIELD [ <a href="#">EDIT</a> ]</div>
+																														<div class="group-header-right"></div>
+																													</div>
+
+																													<div class="group-body">
+																														<div class="group-body-section padded">
+																															<div class="form-group">
+																																<label>Province</label>
+																																<select class="form-control">
+																																	<optgroup label="Provinces">
+																																		<option>Alberta</option>
+																																		<option>British Columbia</option>
+																																		<option>Manitoba</option>
+																																		<option>New Brunswick</option>
+																																		<option>Newfoundland and Labrador</option>
+																																		<option>Nova Scotia</option>
+																																		<option selected>Ontario</option>
+																																		<option>Prince Edward Island</option>
+																																		<option>Quebec</option>
+																																		<option>Saskatchewan</option>
+																																	</optgroup>
+																																	<optgroup label="Territories">
+																																		<option>Northwest Territories</option>
+																																		<option>Yukon</option>
+																																		<option>Nunavut</option>
+																																	</optgroup>
+																																</select>
+																															</div>
+																														</div>
+																													</div>
+
+																													<div class="group-footer">
+																														<div class="group-footer-left"></div>
+																														<div class="group-footer-right"></div>
+																													</div>
+																												</div>
+																											</div>
+
+																											<div class="col">
+																												<div class="group">
+																													<div class="group-header">
+																														<div class="group-header-left">FIELD [ <a href="#">EDIT</a> ]</div>
+																														<div class="group-header-right"></div>
+																													</div>
+
+																													<div class="group-body">
+																														<div class="group-body-section padded">
+																															<div class="form-group">
+																																<label>Postal Code</label>
+																																<input type="text" class="form-control">
+																																<small class="form-text text-muted">Format A1A 1A1, where A is a letter and 1 is a digit, with a space separating the third and fourth characters.</small>
+																															</div>
+																														</div>
+																													</div>
+
+																													<div class="group-footer">
+																														<div class="group-footer-left"></div>
+																														<div class="group-footer-right"></div>
+																													</div>
+																												</div>
+																											</div>
+																										</div>
+																									</div>
+																								</div>
+
+																								<div class="group-footer">
+																									<div class="group-footer-left"></div>
+																									<div class="group-footer-right"></div>
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+
+																					<div class="group-footer">
+																						<div class="group-footer-left"></div>
+																						<div class="group-footer-right"></div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+
+																		<div class="group-footer">
+																			<div class="group-footer-left"></div>
+																			<div class="group-footer-right">
+																				ROWS [ <a href="#">ADD</a> ]
+																			</div>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="group-body-section padded">
+																</div>
+															</div>
+
+															<div class="group-footer">
+																<div class="group-footer-left"></div>
+																<div class="group-footer-right"></div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<div class="group-footer">
+													<div class="group-footer-left"></div>
+													<div class="group-footer-right">
+														SECTIONS [ <a href="#">ADD</a> ]
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="group-body-section padded">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+											<div class="row">
+												<div class="col">
+													<p>
+														<button type="button" class="btn btn-block btn-primary btn-lg">Button</button>
+													</p>
+												</div>
+
+												<div class="col">
+													<p>
+														<button type="button" class="btn btn-block btn-primary btn-lg">Button</button>
+													</p>
+												</div>
+											</div>
+
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+										</div>
+									</div>
+
+									<div class="group-footer">
+										<div class="group-footer-left"></div>
+										<div class="group-footer-right"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="group-footer">
+							<div class="group-footer-left"></div>
+							<div class="group-footer-right">
+								PAGES [ <a href="#">1</a> | <a href="#">2</a> | <a href="#">3</a> | <a href="#">4</a> | <a href="#">ADD</a> ]
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="group-body-section padded">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				</div>
+			</div>
+
+			<div class="group-footer">
+				<div class="group-footer-left"></div>
+				<div class="group-footer-right"></div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
