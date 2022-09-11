@@ -33,6 +33,6 @@
     "gulp-uglify": "^3.0.2"
   },
   "dependencies": {
-    "html-factory": "github:JamesRobertHugginsNgo/html-factory#3.1.0"
+    "html-factory": "github:JamesRobertHugginsNgo/html-factory#4.1.1"
   }
 }

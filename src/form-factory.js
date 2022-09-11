@@ -18,200 +18,264 @@ import { renderElement } from './html-factory.min.js';
 const FormFactory = (() => {
 const { renderElement } = HtmlFactory;
 /* @endif */
+
 let idCounter = 0;
-
-function filteredJoin(...items) {
-	return items.filter((item) => item != null).join(' ');
+function getNextId() {
+	return `form-factory-${idCounter++}`;
 }
 
-// -----------------------------------------------------------------------------
-
-function makeField(definition, createInput, render = renderElement) {
+function getFieldConfiguration(definition, inputConfiguration) {
 	const {
-		className,
-		id = `form-factory-${idCounter++}`,
-		postHelpText,
+		id,
 		preHelpText,
+		postHelpText,
 		required,
-		title = 'Untitled'
-	} = definition;
-
-	const preHelpTextId = !preHelpText ? null : `${id}-pre-help-text`;
-	const postHelpTextId = !postHelpText ? null : `${id}-post-help-text`;
-	const ariaDescribedBy = !preHelpTextId && !postHelpTextId ? null : filteredJoin(preHelpTextId, postHelpTextId);
-
-	console.log('REQUIRED', required);
-
-	return render('div', { class: filteredJoin('col-12 mb-3', className), id: `${id}-element` }, [
-		render('label', { for: id, class: 'form-label', id: `${id}-label` }, [
-			title,
-			required ? null : [
-				' ',
-				render('span', { class: 'form-text' }, '(Optional)')
-			]
-		]),
-
-		!preHelpText ? null : render('div', { class: 'form-text mb-1 mt-0', id: preHelpTextId }, preHelpText),
-
-		createInput({ ariaDescribedBy, id, title, ...definition }, render),
-
-		!postHelpText ? null : render('div', { class: 'form-text', id: postHelpTextId }, postHelpText)
-	]);
-}
-
-// -----------------------------------------------------------------------------
-
-function makeTextareaField(definition, render = renderElement) {
-	return makeField(definition, (definitionArg, renderArg) => {
-		const {
-			ariaDescribedBy,
-			disabled,
-			id,
-			placeHolder,
-			readOnly,
-			required,
-			rows
-		} = definitionArg;
-
-		return renderArg('textarea', {
-			disabled: !disabled ? null : '',
-			placeholder: placeHolder,
-			readonly: !readOnly ? null : '',
-			required: !required ? null : '',
-			rows,
-			class: 'form-control',
-			id,
-			'aria-describedby': ariaDescribedBy
-		});
-	}, render);
-}
-
-// -----------------------------------------------------------------------------
-
-function makeTextField(definition, render = renderElement) {
-	return makeField(definition, (definitionArg, renderArg) => {
-		const {
-			ariaDescribedBy,
-			disabled,
-			id,
-			placeHolder,
-			readOnly,
-			required
-		} = definitionArg;
-
-		return renderArg('input', {
-			disabled: !disabled ? null : '',
-			placeholder: placeHolder,
-			readonly: !readOnly ? null : '',
-			required: !required ? null : '',
-			type: 'text',
-			class: 'form-control',
-			id,
-			'aria-describedby': ariaDescribedBy
-		});
-	}, render);
-}
-
-// -----------------------------------------------------------------------------
-
-function makeRow(definition, render = renderElement) {
-	const {
-		className,
-		factories,
-		fields = [],
-		id
-	} = definition;
-
-	const finalFactories = Object.assign({}, defaultFactories, factories);
-
-	return render('div', { class: filteredJoin('row', className), id }, fields.map((field) => {
-		const { type = 'text' } = field;
-		return finalFactories[type]({ factories, ...field }, render);
-	}));
-}
-
-// -----------------------------------------------------------------------------
-
-function makeSection(definition, render = renderElement) {
-	const {
-		className,
-		factories,
-		id = `form-factory-${idCounter++}`,
-		rows = [],
 		title
 	} = definition;
 
-	const finalFactories = Object.assign({}, defaultFactories, factories);
+	return [
+		{
+			name: 'label',
+			attributes: {
+				class: 'form-label',
+				for: id,
+				id: `${id}-title`
+			},
+			children: [
+				title,
+				required ? null : [
+					' ',
+					{
+						name: 'span',
+						attributes: {
+							class: 'form-text'
+						},
+						children: ['(Optional)']
+					}
+				]
+			]
+		},
 
-	return render('div', { class: filteredJoin('card mb-3', className), id }, [
-		!title ? null : render('h2', { class: 'card-header h5', id: `${id}-heading` }, title),
+		!preHelpText ? null : {
+			name: 'div',
+			attributes: {
+				class: 'form-text mb-1 mt-0',
+				id: `${id}-prehelptext`
+			},
+			children: [preHelpText]
+		},
 
-		render('div', { class: 'card-body' }, rows.map((row) => {
-			const { type = 'row' } = row;
-			return finalFactories[type]({ factories, ...row }, render);
-		}))
-	]);
+		inputConfiguration,
+
+		!postHelpText ? null : {
+			name: 'div',
+			attributes: {
+				class: 'form-text',
+				id: `${id}-posthelptext`
+			},
+			children: [postHelpText]
+		}
+	];
 }
 
-// -----------------------------------------------------------------------------
+const Factories = {
+	form: {
+		render: (definition, renderEl = renderElement) => {
+			const {
+				className,
+				id,
+				sections = [],
+				title
+			} = Object.assign(definition, {
+				id: definition.id || getNextId()
+			});
 
-function makeForm(definition, render = renderElement) {
-	const {
-		className,
-		factories,
-		id = `form-factory-${idCounter++}`,
-		title,
-		sections = []
-	} = definition;
+			return renderEl({
+				name: 'form',
+				attributes: {
+					class: className,
+					id
+				},
+				children: [
+					!title ? null : {
+						name: 'h1',
+						attributes: {
+							id: `${id}-title`
+						},
+						children: [title]
+					},
 
-	const finalFactories = Object.assign({}, defaultFactories, factories);
+					sections.map((section) => {
+						const { type = 'section' } = section;
+						return Factories[type].render(section, renderEl);
+					}),
 
-	return render('form', { class: filteredJoin('mb-3', className), id }, [
-		!title ? null : render('h1', { id: `${id}-heading` }, title),
+					{
+						name: 'div',
+						children: [
+							{
+								name: 'button',
+								attributes: {
+									class: 'btn btn-primary',
+									type: 'button'
+								},
+								children: ['Submit']
+							}
+						]
+					}
+				],
+				functionCallers: [
+					{
+						name: 'Factories.form.initialize',
+						args: [definition]
+					}
+				]
+			});
+		},
 
-		sections.map((section) => {
-			const { type = 'section' } = section;
-			return finalFactories[type]({ factories, ...section }, render);
-		})
-	]);
-}
+		initialize: (definition) => {
+			console.log('FORM', definition);
+		}
+	},
 
-// -----------------------------------------------------------------------------
+	section: {
+		render: (definition, renderEl = renderElement) => {
+			const {
+				id,
+				fields,
+				title
+			} = Object.assign(definition, {
+				id: definition.id || getNextId(),
+				fields: definition.fields || []
+			});
 
-function factory(definition, render = renderElement) {
-	const {
-		factories,
-		type = 'form'
-	} = definition;
+			return renderEl({
+				name: 'div',
+				attributes: {
+					class: 'card mb-3',
+					id
+				},
+				children: [
+					!title ? null : {
+						name: 'h2',
+						attributes: {
+							class: 'card-header h5',
+							id: `${id}-title`
+						},
+						children: [title]
+					},
+					{
+						name: 'div',
+						attributes: {
+							class: 'card-body'
+						},
+						children: fields.map((field) => {
+							const { type } = Object.assign(field, { type: field.type || 'text' });
+							return Factories[type].render(field, renderEl);
+						})
+					}
+				]
+			});
+		}
+	},
 
-	const finalFactories = Object.assign({}, defaultFactories, factories);
+	text: {
+		render: (definition, renderEl = renderElement) => {
+			const {
+				choices,
+				disabled,
+				id,
+				placeHolder,
+				preHelpText,
+				postHelpText,
+				readOnly,
+				required
+			} = Object.assign(definition, {
+				id: definition.id || getNextId(),
+				title: definition.title || 'Unlabled'
+			});
 
-	return finalFactories[type]({ factories, ...definition }, render);
-}
+			return renderEl({
+				name: 'div',
+				attributes: {
+					class: 'row'
+				},
+				children: [
+					{
+						name: 'div',
+						attributes: {
+							class: 'col mb-3'
+						},
+						children: getFieldConfiguration(definition, [
+							{
+								name: 'input',
+								attributes: {
+									class: 'form-control',
+									disabled: !disabled ? null : '',
+									id,
+									list: !choices ? null : `${id}-list`,
+									name: id,
+									placeholder: placeHolder,
+									readonly: !readOnly ? null : '',
+									required: !required ? null : '',
+									type: 'text',
+									'aria-describedby': [preHelpText, postHelpText].every((value) => value == null) ? null : [
+										!preHelpText ? null : `${id}-prehelptext`,
+										!postHelpText ? null : `${id}-posthelptext`
+									].filter((value) => value != null).join(' ')
+								}
+							},
 
-// -----------------------------------------------------------------------------
+							!choices ? null : {
+								name: 'datalist',
+								attributes: {
+									id: `${id}-list`
+								},
+								children: choices.map((choice) => ({
+									name: 'option',
+									attributes: {
+										value: choice
+									}
+								}))
+							}
+						])
+					}
+				]
+			});
+		}
+	},
 
-const defaultFactories = {
-	form: makeForm,
-	row: makeRow,
-	section: makeSection,
-	text: makeTextField,
-	textarea: makeTextareaField
+	temp: {
+		render: (definition, renderEl = renderElement) => {
+			return renderEl({
+				name: 'div',
+				children: []
+			});
+		}
+	}
 };
+
+function render(definition, renderEl = renderElement) {
+	const { type = 'form' } = definition;
+	return Factories[type].render(definition, renderEl);
+}
 
 /* @if TARGET="NODE" */
 module.exports = {
-	factory
+	Factories,
+	render
 };
 /* @endif */
 /* @if TARGET="BROWSER_ESM" **
 export {
-	factory
+	Factories,
+	render
 };
 /* @endif */
 /* @if TARGET="BROWSER_ES6" || TARGET="BROWSER_ES5" **
 return {
-	factory
+	Factories,
+	render
 };
 })();
 

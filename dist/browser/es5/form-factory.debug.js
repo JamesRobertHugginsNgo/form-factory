@@ -1,207 +1,229 @@
 "use strict";
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 /* global HtmlFactory */
 var FormFactory = function () {
   var _HtmlFactory = HtmlFactory,
       renderElement = _HtmlFactory.renderElement;
   var idCounter = 0;
 
-  function filteredJoin() {
-    for (var _len = arguments.length, items = new Array(_len), _key = 0; _key < _len; _key++) {
-      items[_key] = arguments[_key];
-    }
+  function getNextId() {
+    return "form-factory-".concat(idCounter++);
+  }
 
-    return items.filter(function (item) {
-      return item != null;
-    }).join(' ');
-  } // -----------------------------------------------------------------------------
-
-
-  function makeField(definition, createInput) {
-    var render = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : renderElement;
-    var className = definition.className,
-        _definition$id = definition.id,
-        id = _definition$id === void 0 ? "form-factory-".concat(idCounter++) : _definition$id,
-        postHelpText = definition.postHelpText,
+  function getFieldConfiguration(definition, inputConfiguration) {
+    var id = definition.id,
         preHelpText = definition.preHelpText,
+        postHelpText = definition.postHelpText,
         required = definition.required,
-        _definition$title = definition.title,
-        title = _definition$title === void 0 ? 'Untitled' : _definition$title;
-    var preHelpTextId = !preHelpText ? null : "".concat(id, "-pre-help-text");
-    var postHelpTextId = !postHelpText ? null : "".concat(id, "-post-help-text");
-    var ariaDescribedBy = !preHelpTextId && !postHelpTextId ? null : filteredJoin(preHelpTextId, postHelpTextId);
-    console.log('REQUIRED', required);
-    return render('div', {
-      "class": filteredJoin('col-12 mb-3', className),
-      id: "".concat(id, "-element")
-    }, [render('label', {
-      "for": id,
-      "class": 'form-label',
-      id: "".concat(id, "-label")
-    }, [title, required ? null : [' ', render('span', {
-      "class": 'form-text'
-    }, '(Optional)')]]), !preHelpText ? null : render('div', {
-      "class": 'form-text mb-1 mt-0',
-      id: preHelpTextId
-    }, preHelpText), createInput(_objectSpread({
-      ariaDescribedBy: ariaDescribedBy,
-      id: id,
-      title: title
-    }, definition), render), !postHelpText ? null : render('div', {
-      "class": 'form-text',
-      id: postHelpTextId
-    }, postHelpText)]);
-  } // -----------------------------------------------------------------------------
-
-
-  function makeTextareaField(definition) {
-    var render = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : renderElement;
-    return makeField(definition, function (definitionArg, renderArg) {
-      var ariaDescribedBy = definitionArg.ariaDescribedBy,
-          disabled = definitionArg.disabled,
-          id = definitionArg.id,
-          placeHolder = definitionArg.placeHolder,
-          readOnly = definitionArg.readOnly,
-          required = definitionArg.required,
-          rows = definitionArg.rows;
-      return renderArg('textarea', {
-        disabled: !disabled ? null : '',
-        placeholder: placeHolder,
-        readonly: !readOnly ? null : '',
-        required: !required ? null : '',
-        rows: rows,
-        "class": 'form-control',
-        id: id,
-        'aria-describedby': ariaDescribedBy
-      });
-    }, render);
-  } // -----------------------------------------------------------------------------
-
-
-  function makeTextField(definition) {
-    var render = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : renderElement;
-    return makeField(definition, function (definitionArg, renderArg) {
-      var ariaDescribedBy = definitionArg.ariaDescribedBy,
-          disabled = definitionArg.disabled,
-          id = definitionArg.id,
-          placeHolder = definitionArg.placeHolder,
-          readOnly = definitionArg.readOnly,
-          required = definitionArg.required;
-      return renderArg('input', {
-        disabled: !disabled ? null : '',
-        placeholder: placeHolder,
-        readonly: !readOnly ? null : '',
-        required: !required ? null : '',
-        type: 'text',
-        "class": 'form-control',
-        id: id,
-        'aria-describedby': ariaDescribedBy
-      });
-    }, render);
-  } // -----------------------------------------------------------------------------
-
-
-  function makeRow(definition) {
-    var render = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : renderElement;
-    var className = definition.className,
-        factories = definition.factories,
-        _definition$fields = definition.fields,
-        fields = _definition$fields === void 0 ? [] : _definition$fields,
-        id = definition.id;
-    var finalFactories = Object.assign({}, defaultFactories, factories);
-    return render('div', {
-      "class": filteredJoin('row', className),
-      id: id
-    }, fields.map(function (field) {
-      var _field$type = field.type,
-          type = _field$type === void 0 ? 'text' : _field$type;
-      return finalFactories[type](_objectSpread({
-        factories: factories
-      }, field), render);
-    }));
-  } // -----------------------------------------------------------------------------
-
-
-  function makeSection(definition) {
-    var render = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : renderElement;
-    var className = definition.className,
-        factories = definition.factories,
-        _definition$id2 = definition.id,
-        id = _definition$id2 === void 0 ? "form-factory-".concat(idCounter++) : _definition$id2,
-        _definition$rows = definition.rows,
-        rows = _definition$rows === void 0 ? [] : _definition$rows,
         title = definition.title;
-    var finalFactories = Object.assign({}, defaultFactories, factories);
-    return render('div', {
-      "class": filteredJoin('card mb-3', className),
-      id: id
-    }, [!title ? null : render('h2', {
-      "class": 'card-header h5',
-      id: "".concat(id, "-heading")
-    }, title), render('div', {
-      "class": 'card-body'
-    }, rows.map(function (row) {
-      var _row$type = row.type,
-          type = _row$type === void 0 ? 'row' : _row$type;
-      return finalFactories[type](_objectSpread({
-        factories: factories
-      }, row), render);
-    }))]);
-  } // -----------------------------------------------------------------------------
+    return [{
+      name: 'label',
+      attributes: {
+        "class": 'form-label',
+        "for": id,
+        id: "".concat(id, "-title")
+      },
+      children: [title, required ? null : [' ', {
+        name: 'span',
+        attributes: {
+          "class": 'form-text'
+        },
+        children: ['(Optional)']
+      }]]
+    }, !preHelpText ? null : {
+      name: 'div',
+      attributes: {
+        "class": 'form-text mb-1 mt-0',
+        id: "".concat(id, "-prehelptext")
+      },
+      children: [preHelpText]
+    }, inputConfiguration, !postHelpText ? null : {
+      name: 'div',
+      attributes: {
+        "class": 'form-text',
+        id: "".concat(id, "-posthelptext")
+      },
+      children: [postHelpText]
+    }];
+  }
 
+  var Factories = {
+    form: {
+      render: function render(definition) {
+        var renderEl = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : renderElement;
 
-  function makeForm(definition) {
-    var render = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : renderElement;
-    var className = definition.className,
-        factories = definition.factories,
-        _definition$id3 = definition.id,
-        id = _definition$id3 === void 0 ? "form-factory-".concat(idCounter++) : _definition$id3,
-        title = definition.title,
-        _definition$sections = definition.sections,
-        sections = _definition$sections === void 0 ? [] : _definition$sections;
-    var finalFactories = Object.assign({}, defaultFactories, factories);
-    return render('form', {
-      "class": filteredJoin('mb-3', className),
-      id: id
-    }, [!title ? null : render('h1', {
-      id: "".concat(id, "-heading")
-    }, title), sections.map(function (section) {
-      var _section$type = section.type,
-          type = _section$type === void 0 ? 'section' : _section$type;
-      return finalFactories[type](_objectSpread({
-        factories: factories
-      }, section), render);
-    })]);
-  } // -----------------------------------------------------------------------------
+        var _Object$assign = Object.assign(definition, {
+          id: definition.id || getNextId()
+        }),
+            className = _Object$assign.className,
+            id = _Object$assign.id,
+            _Object$assign$sectio = _Object$assign.sections,
+            sections = _Object$assign$sectio === void 0 ? [] : _Object$assign$sectio,
+            title = _Object$assign.title;
 
+        return renderEl({
+          name: 'form',
+          attributes: {
+            "class": className,
+            id: id
+          },
+          children: [!title ? null : {
+            name: 'h1',
+            attributes: {
+              id: "".concat(id, "-title")
+            },
+            children: [title]
+          }, sections.map(function (section) {
+            var _section$type = section.type,
+                type = _section$type === void 0 ? 'section' : _section$type;
+            return Factories[type].render(section, renderEl);
+          }), {
+            name: 'div',
+            children: [{
+              name: 'button',
+              attributes: {
+                "class": 'btn btn-primary',
+                type: 'button'
+              },
+              children: ['Submit']
+            }]
+          }],
+          functionCallers: [{
+            name: 'Factories.form.initialize',
+            args: [definition]
+          }]
+        });
+      },
+      initialize: function initialize(definition) {
+        console.log('FORM', definition);
+      }
+    },
+    section: {
+      render: function render(definition) {
+        var renderEl = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : renderElement;
 
-  function factory(definition) {
-    var render = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : renderElement;
-    var factories = definition.factories,
-        _definition$type = definition.type,
-        type = _definition$type === void 0 ? 'form' : _definition$type;
-    var finalFactories = Object.assign({}, defaultFactories, factories);
-    return finalFactories[type](_objectSpread({
-      factories: factories
-    }, definition), render);
-  } // -----------------------------------------------------------------------------
+        var _Object$assign2 = Object.assign(definition, {
+          id: definition.id || getNextId(),
+          fields: definition.fields || []
+        }),
+            id = _Object$assign2.id,
+            fields = _Object$assign2.fields,
+            title = _Object$assign2.title;
 
+        return renderEl({
+          name: 'div',
+          attributes: {
+            "class": 'card mb-3',
+            id: id
+          },
+          children: [!title ? null : {
+            name: 'h2',
+            attributes: {
+              "class": 'card-header h5',
+              id: "".concat(id, "-title")
+            },
+            children: [title]
+          }, {
+            name: 'div',
+            attributes: {
+              "class": 'card-body'
+            },
+            children: fields.map(function (field) {
+              var _Object$assign3 = Object.assign(field, {
+                type: field.type || 'text'
+              }),
+                  type = _Object$assign3.type;
 
-  var defaultFactories = {
-    form: makeForm,
-    row: makeRow,
-    section: makeSection,
-    text: makeTextField,
-    textarea: makeTextareaField
+              return Factories[type].render(field, renderEl);
+            })
+          }]
+        });
+      }
+    },
+    text: {
+      render: function render(definition) {
+        var renderEl = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : renderElement;
+
+        var _Object$assign4 = Object.assign(definition, {
+          id: definition.id || getNextId(),
+          title: definition.title || 'Unlabled'
+        }),
+            choices = _Object$assign4.choices,
+            disabled = _Object$assign4.disabled,
+            id = _Object$assign4.id,
+            placeHolder = _Object$assign4.placeHolder,
+            preHelpText = _Object$assign4.preHelpText,
+            postHelpText = _Object$assign4.postHelpText,
+            readOnly = _Object$assign4.readOnly,
+            required = _Object$assign4.required;
+
+        return renderEl({
+          name: 'div',
+          attributes: {
+            "class": 'row'
+          },
+          children: [{
+            name: 'div',
+            attributes: {
+              "class": 'col mb-3'
+            },
+            children: getFieldConfiguration(definition, [{
+              name: 'input',
+              attributes: {
+                "class": 'form-control',
+                disabled: !disabled ? null : '',
+                id: id,
+                list: !choices ? null : "".concat(id, "-list"),
+                name: id,
+                placeholder: placeHolder,
+                readonly: !readOnly ? null : '',
+                required: !required ? null : '',
+                type: 'text',
+                'aria-describedby': [preHelpText, postHelpText].every(function (value) {
+                  return value == null;
+                }) ? null : [!preHelpText ? null : "".concat(id, "-prehelptext"), !postHelpText ? null : "".concat(id, "-posthelptext")].filter(function (value) {
+                  return value != null;
+                }).join(' ')
+              }
+            }, !choices ? null : {
+              name: 'datalist',
+              attributes: {
+                id: "".concat(id, "-list")
+              },
+              children: choices.map(function (choice) {
+                return {
+                  name: 'option',
+                  attributes: {
+                    value: choice
+                  }
+                };
+              })
+            }])
+          }]
+        });
+      }
+    },
+    temp: {
+      render: function render(definition) {
+        var renderEl = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : renderElement;
+        return renderEl({
+          name: 'div',
+          children: []
+        });
+      }
+    }
   };
+
+  function render(definition) {
+    var renderEl = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : renderElement;
+    var _definition$type = definition.type,
+        type = _definition$type === void 0 ? 'form' : _definition$type;
+    return Factories[type].render(definition, renderEl);
+  }
+
   return {
-    factory: factory
+    Factories: Factories,
+    render: render
   };
 }();
 /* exported FormFactory */
